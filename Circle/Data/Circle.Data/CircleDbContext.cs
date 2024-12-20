@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Circle.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class CircleDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public CircleDbContext(DbContextOptions<CircleDbContext> options)
             : base(options)
         {
         }

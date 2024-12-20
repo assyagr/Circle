@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Circle.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27adb795df9e9391d5f730f2316792064bd961ee")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+459089c57544fd1b78119e4f3d5b6fb315e5002b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Circle.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Circle.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
