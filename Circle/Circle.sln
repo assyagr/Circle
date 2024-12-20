@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Circle", "Circle\Circle.csproj", "{6B6E120D-DB45-47B7-9ADC-AF734BF53B43}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{41E13F12-4628-488F-BFC3-A2AD91DE8F0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{885E119D-4CA3-4F3D-97A8-D406A59C4E2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{31462B31-7F71-4EDE-848D-5C3900DAFF24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Circle.Web", "Web\Circle.Web\Circle.Web.csproj", "{067A727F-0231-4A98-B448-9B40E23CAC5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Circle.Data", "Data\Circle.Data\Circle.Data.csproj", "{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Circle.Service", "Service\Circle.Service\Circle.Service.csproj", "{2E453385-ADEB-4B29-9894-A3DC180EA1C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +21,25 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6B6E120D-DB45-47B7-9ADC-AF734BF53B43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B6E120D-DB45-47B7-9ADC-AF734BF53B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B6E120D-DB45-47B7-9ADC-AF734BF53B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B6E120D-DB45-47B7-9ADC-AF734BF53B43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{067A727F-0231-4A98-B448-9B40E23CAC5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{067A727F-0231-4A98-B448-9B40E23CAC5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{067A727F-0231-4A98-B448-9B40E23CAC5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{067A727F-0231-4A98-B448-9B40E23CAC5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E453385-ADEB-4B29-9894-A3DC180EA1C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E453385-ADEB-4B29-9894-A3DC180EA1C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E453385-ADEB-4B29-9894-A3DC180EA1C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E453385-ADEB-4B29-9894-A3DC180EA1C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{067A727F-0231-4A98-B448-9B40E23CAC5B} = {41E13F12-4628-488F-BFC3-A2AD91DE8F0A}
+		{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A} = {885E119D-4CA3-4F3D-97A8-D406A59C4E2C}
+		{2E453385-ADEB-4B29-9894-A3DC180EA1C3} = {31462B31-7F71-4EDE-848D-5C3900DAFF24}
 	EndGlobalSection
 EndGlobal
