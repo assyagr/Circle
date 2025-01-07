@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Circle.Data.Models
 {
-	public class Comment
+	public class Comment : MetadataBaseEntity
 	{
-		//Add properties
+		public string Content { get; set; }
+
+		public List<UserCommentReaction> Reactions { get; set; }
+
+		public List<Comment> Replies { get; set; }
 	}
 }

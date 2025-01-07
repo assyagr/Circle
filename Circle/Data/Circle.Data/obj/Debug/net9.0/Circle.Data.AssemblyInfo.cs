@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Circle.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+459089c57544fd1b78119e4f3d5b6fb315e5002b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a718860856398a2b0228aaf4c38af7dc01c0e1fc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Circle.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Circle.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
