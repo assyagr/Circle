@@ -15,5 +15,7 @@ namespace Circle.Data.Models
 		public List<UserPostReaction> Reactions { get; set; }
 
 		public List<UserPostComment> Comments { get; set; }
+
+		public List<CircleUser> TaggedUsers { get; set; }
 	}
 }

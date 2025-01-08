@@ -3,32 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2526CB41-2AC6-4748-862A-D64FA6F5F373}|Data\\Circle.Data.Models\\Circle.Data.Models.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\data\\circle.data.models\\circleuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2526CB41-2AC6-4748-862A-D64FA6F5F373}|Data\\Circle.Data.Models\\Circle.Data.Models.csproj|solutionrelative:data\\circle.data.models\\circleuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}|Data\\Circle.Data\\Circle.Data.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\data\\circle.data\\circledbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}|Data\\Circle.Data\\Circle.Data.csproj|solutionrelative:data\\circle.data\\circledbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}|Data\\Circle.Data\\Circle.Data.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\data\\circle.data\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}|Data\\Circle.Data\\Circle.Data.csproj|solutionrelative:data\\circle.data\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}|Data\\Circle.Data\\Circle.Data.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\data\\circle.data\\migrations\\00000000000000_createidentityschema.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}|Data\\Circle.Data\\Circle.Data.csproj|solutionrelative:data\\circle.data\\migrations\\00000000000000_createidentityschema.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}|Data\\Circle.Data\\Circle.Data.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\data\\circle.data\\migrations\\00000000000000_createidentityschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}|Data\\Circle.Data\\Circle.Data.csproj|solutionrelative:data\\circle.data\\migrations\\00000000000000_createidentityschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{067A727F-0231-4A98-B448-9B40E23CAC5B}|Web\\Circle.Web\\Circle.Web.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\web\\circle.web\\data\\migrations\\20250107203647_initialentities-retry1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{067A727F-0231-4A98-B448-9B40E23CAC5B}|Web\\Circle.Web\\Circle.Web.csproj|solutionrelative:web\\circle.web\\data\\migrations\\20250107203647_initialentities-retry1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2526CB41-2AC6-4748-862A-D64FA6F5F373}|Data\\Circle.Data.Models\\Circle.Data.Models.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\data\\circle.data.models\\circleuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2526CB41-2AC6-4748-862A-D64FA6F5F373}|Data\\Circle.Data.Models\\Circle.Data.Models.csproj|solutionrelative:data\\circle.data.models\\circleuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2526CB41-2AC6-4748-862A-D64FA6F5F373}|Data\\Circle.Data.Models\\Circle.Data.Models.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\data\\circle.data.models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2526CB41-2AC6-4748-862A-D64FA6F5F373}|Data\\Circle.Data.Models\\Circle.Data.Models.csproj|solutionrelative:data\\circle.data.models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2526CB41-2AC6-4748-862A-D64FA6F5F373}|Data\\Circle.Data.Models\\Circle.Data.Models.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\data\\circle.data.models\\circlepost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2526CB41-2AC6-4748-862A-D64FA6F5F373}|Data\\Circle.Data.Models\\Circle.Data.Models.csproj|solutionrelative:data\\circle.data.models\\circlepost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}|Data\\Circle.Data\\Circle.Data.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\data\\circle.data\\repositories\\metadatabasegenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA0DEA4A-3BB1-4651-9919-9AB01B0ED47A}|Data\\Circle.Data\\Circle.Data.csproj|solutionrelative:data\\circle.data\\repositories\\metadatabasegenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2526CB41-2AC6-4748-862A-D64FA6F5F373}|Data\\Circle.Data.Models\\Circle.Data.Models.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\data\\circle.data.models\\attachment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2526CB41-2AC6-4748-862A-D64FA6F5F373}|Data\\Circle.Data.Models\\Circle.Data.Models.csproj|solutionrelative:data\\circle.data.models\\attachment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{067A727F-0231-4A98-B448-9B40E23CAC5B}|Web\\Circle.Web\\Circle.Web.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\web\\circle.web\\data\\migrations\\00000000000000_createidentityschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{067A727F-0231-4A98-B448-9B40E23CAC5B}|Web\\Circle.Web\\Circle.Web.csproj|solutionrelative:web\\circle.web\\data\\migrations\\00000000000000_createidentityschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2526CB41-2AC6-4748-862A-D64FA6F5F373}|Data\\Circle.Data.Models\\Circle.Data.Models.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\data\\circle.data.models\\userpostreaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2526CB41-2AC6-4748-862A-D64FA6F5F373}|Data\\Circle.Data.Models\\Circle.Data.Models.csproj|solutionrelative:data\\circle.data.models\\userpostreaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{067A727F-0231-4A98-B448-9B40E23CAC5B}|Web\\Circle.Web\\Circle.Web.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\web\\circle.web\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{067A727F-0231-4A98-B448-9B40E23CAC5B}|Web\\Circle.Web\\Circle.Web.csproj|solutionrelative:web\\circle.web\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2526CB41-2AC6-4748-862A-D64FA6F5F373}|Data\\Circle.Data.Models\\Circle.Data.Models.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\data\\circle.data.models\\userpostcomment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2526CB41-2AC6-4748-862A-D64FA6F5F373}|Data\\Circle.Data.Models\\Circle.Data.Models.csproj|solutionrelative:data\\circle.data.models\\userpostcomment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{067A727F-0231-4A98-B448-9B40E23CAC5B}|Web\\Circle.Web\\Circle.Web.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\web\\circle.web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{067A727F-0231-4A98-B448-9B40E23CAC5B}|Web\\Circle.Web\\Circle.Web.csproj|solutionrelative:web\\circle.web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{067A727F-0231-4A98-B448-9B40E23CAC5B}|Web\\Circle.Web\\Circle.Web.csproj|c:\\users\\asya\\desktop\\az\\social media\\circle\\circle\\web\\circle.web\\data\\migrations\\20250107201140_initialentitiesdesign.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{067A727F-0231-4A98-B448-9B40E23CAC5B}|Web\\Circle.Web\\Circle.Web.csproj|solutionrelative:web\\circle.web\\data\\migrations\\20250107201140_initialentitiesdesign.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,24 +58,60 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CircleDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data\\CircleDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\Circle.Data\\CircleDbContext.cs",
-              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data\\CircleDbContext.cs",
-              "RelativeToolTip": "Data\\Circle.Data\\CircleDbContext.cs",
+              "DocumentIndex": 2,
+              "Title": "00000000000000_CreateIdentitySchema.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data\\Migrations\\00000000000000_CreateIdentitySchema.Designer.cs",
+              "RelativeDocumentMoniker": "Data\\Circle.Data\\Migrations\\00000000000000_CreateIdentitySchema.Designer.cs",
+              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data\\Migrations\\00000000000000_CreateIdentitySchema.Designer.cs",
+              "RelativeToolTip": "Data\\Circle.Data\\Migrations\\00000000000000_CreateIdentitySchema.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T20:27:35.09Z",
+              "WhenOpened": "2025-01-07T20:54:25.899Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApplicationDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Data\\Circle.Data\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Data\\Circle.Data\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T20:54:18.048Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
+              "Title": "20250107203647_InitialEntities-Retry1.cs",
+              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\Data\\Migrations\\20250107203647_InitialEntities-Retry1.cs",
+              "RelativeDocumentMoniker": "Web\\Circle.Web\\Data\\Migrations\\20250107203647_InitialEntities-Retry1.cs",
+              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\Data\\Migrations\\20250107203647_InitialEntities-Retry1.cs",
+              "RelativeToolTip": "Web\\Circle.Web\\Data\\Migrations\\20250107203647_InitialEntities-Retry1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T20:36:47.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CircleUser.cs",
+              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data.Models\\CircleUser.cs",
+              "RelativeDocumentMoniker": "Data\\Circle.Data.Models\\CircleUser.cs",
+              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data.Models\\CircleUser.cs",
+              "RelativeToolTip": "Data\\Circle.Data.Models\\CircleUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T20:32:11.684Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Comment.cs",
               "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data.Models\\Comment.cs",
               "RelativeDocumentMoniker": "Data\\Circle.Data.Models\\Comment.cs",
@@ -63,72 +119,91 @@
               "RelativeToolTip": "Data\\Circle.Data.Models\\Comment.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T20:25:43.557Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T20:32:10.889Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MetadataBaseGenericRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data\\Repositories\\MetadataBaseGenericRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Circle.Data\\Repositories\\MetadataBaseGenericRepository.cs",
+              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data\\Repositories\\MetadataBaseGenericRepository.cs",
+              "RelativeToolTip": "Data\\Circle.Data\\Repositories\\MetadataBaseGenericRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T20:29:56.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "00000000000000_CreateIdentitySchema.cs",
+              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\Data\\Migrations\\00000000000000_CreateIdentitySchema.cs",
+              "RelativeDocumentMoniker": "Web\\Circle.Web\\Data\\Migrations\\00000000000000_CreateIdentitySchema.cs",
+              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\Data\\Migrations\\00000000000000_CreateIdentitySchema.cs",
+              "RelativeToolTip": "Web\\Circle.Web\\Data\\Migrations\\00000000000000_CreateIdentitySchema.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T20:28:07.57Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "CirclePost.cs",
-              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data.Models\\CirclePost.cs",
-              "RelativeDocumentMoniker": "Data\\Circle.Data.Models\\CirclePost.cs",
-              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data.Models\\CirclePost.cs",
-              "RelativeToolTip": "Data\\Circle.Data.Models\\CirclePost.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "00000000000000_CreateIdentitySchema.cs",
+              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data\\Migrations\\00000000000000_CreateIdentitySchema.cs",
+              "RelativeDocumentMoniker": "Data\\Circle.Data\\Migrations\\00000000000000_CreateIdentitySchema.cs",
+              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data\\Migrations\\00000000000000_CreateIdentitySchema.cs",
+              "RelativeToolTip": "Data\\Circle.Data\\Migrations\\00000000000000_CreateIdentitySchema.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANcAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T20:25:39.808Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T20:27:56.945Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Attachment.cs",
-              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data.Models\\Attachment.cs",
-              "RelativeDocumentMoniker": "Data\\Circle.Data.Models\\Attachment.cs",
-              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data.Models\\Attachment.cs",
-              "RelativeToolTip": "Data\\Circle.Data.Models\\Attachment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Web\\Circle.Web\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Web\\Circle.Web\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwAcAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T20:25:37.885Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T20:27:44.224Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserPostComment.cs",
-              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data.Models\\UserPostComment.cs",
-              "RelativeDocumentMoniker": "Data\\Circle.Data.Models\\UserPostComment.cs",
-              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data.Models\\UserPostComment.cs",
-              "RelativeToolTip": "Data\\Circle.Data.Models\\UserPostComment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T20:25:19.622Z",
-              "EditorCaption": ""
+              "DocumentIndex": 10,
+              "Title": "additional-methods.js",
+              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+              "RelativeDocumentMoniker": "Web\\Circle.Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+              "RelativeToolTip": "Web\\Circle.Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+              "ViewState": "AgIAAHAFAAAAAAAAAADgv4UFAABlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-01-07T20:27:35.701Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserPostReaction.cs",
-              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data.Models\\UserPostReaction.cs",
-              "RelativeDocumentMoniker": "Data\\Circle.Data.Models\\UserPostReaction.cs",
-              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data.Models\\UserPostReaction.cs",
-              "RelativeToolTip": "Data\\Circle.Data.Models\\UserPostReaction.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "20250107201140_InitialEntitiesDesign.cs",
+              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\Data\\Migrations\\20250107201140_InitialEntitiesDesign.cs",
+              "RelativeDocumentMoniker": "Web\\Circle.Web\\Data\\Migrations\\20250107201140_InitialEntitiesDesign.cs",
+              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\Data\\Migrations\\20250107201140_InitialEntitiesDesign.cs",
+              "RelativeToolTip": "Web\\Circle.Web\\Data\\Migrations\\20250107201140_InitialEntitiesDesign.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T20:25:18.839Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T20:11:40.169Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CircleUser.cs",
-              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data.Models\\CircleUser.cs",
-              "RelativeDocumentMoniker": "Data\\Circle.Data.Models\\CircleUser.cs",
-              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data.Models\\CircleUser.cs",
-              "RelativeToolTip": "Data\\Circle.Data.Models\\CircleUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
+              "Title": "CircleDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data\\CircleDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\Circle.Data\\CircleDbContext.cs",
+              "ToolTip": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data\\CircleDbContext.cs",
+              "RelativeToolTip": "Data\\Circle.Data\\CircleDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T20:21:06.685Z",
+              "WhenOpened": "2025-01-07T20:09:36.806Z",
               "EditorCaption": ""
             }
           ]

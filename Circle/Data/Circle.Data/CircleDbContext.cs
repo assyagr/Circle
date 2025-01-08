@@ -1,13 +1,23 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Circle.Data.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Circle.Data
 {
-    public class CircleDbContext : IdentityDbContext
+    public class CircleDbContext : IdentityDbContext<CircleUser>
     {
-        public CircleDbContext(DbContextOptions<CircleDbContext> options)
+        public DbSet<Attachment> Attachments { get; set; }
+
+        public DbSet<CirclePost> Posts { get; set; }
+
+        public DbSet<Comment> Comments { get; set; }
+
+        public DbSet<Reaction> Reactions { get; set; }
+
+		public CircleDbContext(DbContextOptions<CircleDbContext> options)
             : base(options)
         {
         }
-    }
+
+	}
 }

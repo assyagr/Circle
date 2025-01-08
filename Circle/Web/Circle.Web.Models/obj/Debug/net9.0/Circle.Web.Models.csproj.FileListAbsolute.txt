@@ -1,0 +1,12 @@
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web.Models\bin\Debug\net9.0\Circle.Web.Models.deps.json
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web.Models\bin\Debug\net9.0\Circle.Web.Models.dll
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web.Models\bin\Debug\net9.0\Circle.Web.Models.pdb
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web.Models\obj\Debug\net9.0\Circle.Web.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web.Models\obj\Debug\net9.0\Circle.Web.Models.AssemblyInfoInputs.cache
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web.Models\obj\Debug\net9.0\Circle.Web.Models.AssemblyInfo.cs
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web.Models\obj\Debug\net9.0\Circle.Web.Models.csproj.CoreCompileInputs.cache
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web.Models\obj\Debug\net9.0\Circle.Web.Models.sourcelink.json
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web.Models\obj\Debug\net9.0\Circle.Web.Models.dll
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web.Models\obj\Debug\net9.0\refint\Circle.Web.Models.dll
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web.Models\obj\Debug\net9.0\Circle.Web.Models.pdb
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web.Models\obj\Debug\net9.0\ref\Circle.Web.Models.dll
