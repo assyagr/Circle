@@ -1770,6 +1770,36 @@
             "rid": "win"
           }
         }
+      },
+      "Circle.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Circle.Data.Models": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.0",
+          "Microsoft.AspNetCore.Identity.UI": "9.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Circle.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Circle.Data.dll": {}
+        }
+      },
+      "Circle.Data.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Circle.Data.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Circle.Data.Models.dll": {}
+        }
       }
     }
   },
@@ -5153,10 +5183,21 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Circle.Data/1.0.0": {
+      "type": "project",
+      "path": "../../Data/Circle.Data/Circle.Data.csproj",
+      "msbuildProject": "../../Data/Circle.Data/Circle.Data.csproj"
+    },
+    "Circle.Data.Models/1.0.0": {
+      "type": "project",
+      "path": "../../Data/Circle.Data.Models/Circle.Data.Models.csproj",
+      "msbuildProject": "../../Data/Circle.Data.Models/Circle.Data.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "Circle.Data >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 9.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 9.0.0",
       "Microsoft.AspNetCore.Identity.UI >= 9.0.0",
@@ -5197,7 +5238,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data\\Circle.Data.csproj": {
+              "projectPath": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Data\\Circle.Data\\Circle.Data.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

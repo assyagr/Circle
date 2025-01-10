@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Circle.Web.Models")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+876a517b2b9eb56ea64ec7d8c91dde46a5ead5b8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a363ba3e8a71aa24d4909975b2b2ad67f95801eb")]
 [assembly: System.Reflection.AssemblyProductAttribute("Circle.Web.Models")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Circle.Web.Models")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
