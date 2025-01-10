@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Circle.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+459089c57544fd1b78119e4f3d5b6fb315e5002b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+876a517b2b9eb56ea64ec7d8c91dde46a5ead5b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Circle.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Circle.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

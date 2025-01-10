@@ -1,0 +1,12 @@
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Service\Circle.Service\bin\Debug\net9.0\Circle.Service.deps.json
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Service\Circle.Service\bin\Debug\net9.0\Circle.Service.dll
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Service\Circle.Service\bin\Debug\net9.0\Circle.Service.pdb
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Service\Circle.Service\obj\Debug\net9.0\Circle.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Service\Circle.Service\obj\Debug\net9.0\Circle.Service.AssemblyInfoInputs.cache
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Service\Circle.Service\obj\Debug\net9.0\Circle.Service.AssemblyInfo.cs
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Service\Circle.Service\obj\Debug\net9.0\Circle.Service.csproj.CoreCompileInputs.cache
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Service\Circle.Service\obj\Debug\net9.0\Circle.Service.sourcelink.json
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Service\Circle.Service\obj\Debug\net9.0\Circle.Service.dll
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Service\Circle.Service\obj\Debug\net9.0\refint\Circle.Service.dll
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Service\Circle.Service\obj\Debug\net9.0\Circle.Service.pdb
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Service\Circle.Service\obj\Debug\net9.0\ref\Circle.Service.dll

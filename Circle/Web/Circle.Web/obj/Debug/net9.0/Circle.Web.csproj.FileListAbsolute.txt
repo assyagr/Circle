@@ -556,8 +556,6 @@ C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net
 C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net9.0\compressed\3pij4lq0cr-muycvpuwrr.gz
 C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net9.0\compressed\omnnymeevf-87fc7y1x7t.gz
 C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net9.0\compressed\dkfzhffool-mlv21k5csn.gz
-C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net9.0\compressed\kpjfb3gdfl-iu4xsjttey.gz
-C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net9.0\compressed\f1toght6e4-iu4xsjttey.gz
 C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net9.0\staticwebassets.build.endpoints.json
@@ -574,3 +572,5 @@ C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net
 C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net9.0\Circle.Web.pdb
 C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net9.0\Circle.Web.genruntimeconfig.cache
 C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net9.0\ref\Circle.Web.dll
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net9.0\compressed\kpjfb3gdfl-m81e9llzmv.gz
+C:\Users\Asya\Desktop\az\Social Media\Circle\Circle\Web\Circle.Web\obj\Debug\net9.0\compressed\f1toght6e4-m81e9llzmv.gz

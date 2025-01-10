@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1nLMATOB5Z0ypTRtnfcUrCRenpEIpbQmKSSyn030tYQ=",
+  "Hash": "Q/zZG5eAhRmLOgTeJbVZBrdIXZaKNsVQwwwMOXlyazk=",
   "Source": "Circle.Web",
   "BasePath": "_content/Circle.Web",
   "Mode": "Default",
@@ -2222,12 +2222,12 @@
       "OriginalItemSpec": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\f1toght6e4-iu4xsjttey.gz",
+      "Identity": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\f1toght6e4-m81e9llzmv.gz",
       "SourceId": "Circle.Web",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/Circle.Web",
-      "RelativePath": "Circle.Web#[.{fingerprint=iu4xsjttey}]!.bundle.scp.css.gz",
+      "RelativePath": "Circle.Web#[.{fingerprint=m81e9llzmv}]!.bundle.scp.css.gz",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Alternative",
@@ -2236,8 +2236,8 @@
       "RelatedAsset": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\Circle.Web.bundle.scp.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "ckyj9zpbf6",
-      "Integrity": "vJqlwYcY8IMz7BbyxK1jIvEoR6jaYDRRh1T7RLp2c98=",
+      "Fingerprint": "v2nemxdlub",
+      "Integrity": "qYlJWwhA+bfrl+WtGQZS6E2RnSjwjyae2CQQ/N3lR3c=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\Circle.Web.bundle.scp.css"
@@ -2789,12 +2789,12 @@
       "OriginalItemSpec": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\kpjfb3gdfl-iu4xsjttey.gz",
+      "Identity": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\kpjfb3gdfl-m81e9llzmv.gz",
       "SourceId": "Circle.Web",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/Circle.Web",
-      "RelativePath": "Circle.Web#[.{fingerprint=iu4xsjttey}]?.styles.css.gz",
+      "RelativePath": "Circle.Web#[.{fingerprint=m81e9llzmv}]?.styles.css.gz",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Alternative",
@@ -2803,8 +2803,8 @@
       "RelatedAsset": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\scopedcss\\bundle\\Circle.Web.styles.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "ckyj9zpbf6",
-      "Integrity": "vJqlwYcY8IMz7BbyxK1jIvEoR6jaYDRRh1T7RLp2c98=",
+      "Fingerprint": "v2nemxdlub",
+      "Integrity": "qYlJWwhA+bfrl+WtGQZS6E2RnSjwjyae2CQQ/N3lR3c=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\scopedcss\\bundle\\Circle.Web.styles.css"
@@ -4000,8 +4000,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "iu4xsjttey",
-      "Integrity": "ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc=",
+      "Fingerprint": "m81e9llzmv",
+      "Integrity": "OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\scopedcss\\bundle\\Circle.Web.styles.css"
@@ -4021,8 +4021,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "iu4xsjttey",
-      "Integrity": "ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc=",
+      "Fingerprint": "m81e9llzmv",
+      "Integrity": "OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\Circle.Web.bundle.scp.css"
@@ -5354,12 +5354,12 @@
   "Endpoints": [
     {
       "Route": "Circle.Web.bundle.scp.css",
-      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\f1toght6e4-iu4xsjttey.gz",
+      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\f1toght6e4-m81e9llzmv.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001845018450"
+          "Quality": "0.001841620626"
         }
       ],
       "ResponseHeaders": [
@@ -5369,15 +5369,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "541"
+          "Value": "542"
         },
         {
           "Name": "ETag",
-          "Value": "\"vJqlwYcY8IMz7BbyxK1jIvEoR6jaYDRRh1T7RLp2c98=\""
+          "Value": "\"qYlJWwhA+bfrl+WtGQZS6E2RnSjwjyae2CQQ/N3lR3c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Dec 2024 12:00:02 GMT"
+          "Value": "Tue, 07 Jan 2025 20:20:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5397,13 +5397,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc=\""
+          "Value": "W/\"OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc="
+          "Value": "sha256-OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q="
         }
       ]
     },
@@ -5426,11 +5426,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc=\""
+          "Value": "\"OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Dec 2024 12:00:02 GMT"
+          "Value": "Tue, 07 Jan 2025 20:20:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5440,13 +5440,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc="
+          "Value": "sha256-OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q="
         }
       ]
     },
     {
       "Route": "Circle.Web.bundle.scp.css.gz",
-      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\f1toght6e4-iu4xsjttey.gz",
+      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\f1toght6e4-m81e9llzmv.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5455,7 +5455,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "541"
+          "Value": "542"
         },
         {
           "Name": "Content-Type",
@@ -5463,11 +5463,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vJqlwYcY8IMz7BbyxK1jIvEoR6jaYDRRh1T7RLp2c98=\""
+          "Value": "\"qYlJWwhA+bfrl+WtGQZS6E2RnSjwjyae2CQQ/N3lR3c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Dec 2024 12:00:02 GMT"
+          "Value": "Tue, 07 Jan 2025 20:20:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5485,18 +5485,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vJqlwYcY8IMz7BbyxK1jIvEoR6jaYDRRh1T7RLp2c98="
+          "Value": "sha256-qYlJWwhA+bfrl+WtGQZS6E2RnSjwjyae2CQQ/N3lR3c="
         }
       ]
     },
     {
-      "Route": "Circle.Web.iu4xsjttey.bundle.scp.css",
-      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\f1toght6e4-iu4xsjttey.gz",
+      "Route": "Circle.Web.m81e9llzmv.bundle.scp.css",
+      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\f1toght6e4-m81e9llzmv.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001845018450"
+          "Quality": "0.001841620626"
         }
       ],
       "ResponseHeaders": [
@@ -5506,15 +5506,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "541"
+          "Value": "542"
         },
         {
           "Name": "ETag",
-          "Value": "\"vJqlwYcY8IMz7BbyxK1jIvEoR6jaYDRRh1T7RLp2c98=\""
+          "Value": "\"qYlJWwhA+bfrl+WtGQZS6E2RnSjwjyae2CQQ/N3lR3c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Dec 2024 12:00:02 GMT"
+          "Value": "Tue, 07 Jan 2025 20:20:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5534,13 +5534,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc=\""
+          "Value": "W/\"OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "iu4xsjttey"
+          "Value": "m81e9llzmv"
         },
         {
           "Name": "label",
@@ -5548,12 +5548,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc="
+          "Value": "sha256-OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q="
         }
       ]
     },
     {
-      "Route": "Circle.Web.iu4xsjttey.bundle.scp.css",
+      "Route": "Circle.Web.m81e9llzmv.bundle.scp.css",
       "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\Circle.Web.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5571,11 +5571,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc=\""
+          "Value": "\"OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Dec 2024 12:00:02 GMT"
+          "Value": "Tue, 07 Jan 2025 20:20:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5585,7 +5585,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "iu4xsjttey"
+          "Value": "m81e9llzmv"
         },
         {
           "Name": "label",
@@ -5593,13 +5593,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc="
+          "Value": "sha256-OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q="
         }
       ]
     },
     {
-      "Route": "Circle.Web.iu4xsjttey.bundle.scp.css.gz",
-      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\f1toght6e4-iu4xsjttey.gz",
+      "Route": "Circle.Web.m81e9llzmv.bundle.scp.css.gz",
+      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\f1toght6e4-m81e9llzmv.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5608,7 +5608,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "541"
+          "Value": "542"
         },
         {
           "Name": "Content-Type",
@@ -5616,11 +5616,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vJqlwYcY8IMz7BbyxK1jIvEoR6jaYDRRh1T7RLp2c98=\""
+          "Value": "\"qYlJWwhA+bfrl+WtGQZS6E2RnSjwjyae2CQQ/N3lR3c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Dec 2024 12:00:02 GMT"
+          "Value": "Tue, 07 Jan 2025 20:20:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5638,7 +5638,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "iu4xsjttey"
+          "Value": "m81e9llzmv"
         },
         {
           "Name": "label",
@@ -5646,18 +5646,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-vJqlwYcY8IMz7BbyxK1jIvEoR6jaYDRRh1T7RLp2c98="
+          "Value": "sha256-qYlJWwhA+bfrl+WtGQZS6E2RnSjwjyae2CQQ/N3lR3c="
         }
       ]
     },
     {
-      "Route": "Circle.Web.iu4xsjttey.styles.css",
-      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\kpjfb3gdfl-iu4xsjttey.gz",
+      "Route": "Circle.Web.m81e9llzmv.styles.css",
+      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\kpjfb3gdfl-m81e9llzmv.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001845018450"
+          "Quality": "0.001841620626"
         }
       ],
       "ResponseHeaders": [
@@ -5667,15 +5667,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "541"
+          "Value": "542"
         },
         {
           "Name": "ETag",
-          "Value": "\"vJqlwYcY8IMz7BbyxK1jIvEoR6jaYDRRh1T7RLp2c98=\""
+          "Value": "\"qYlJWwhA+bfrl+WtGQZS6E2RnSjwjyae2CQQ/N3lR3c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Dec 2024 12:00:02 GMT"
+          "Value": "Tue, 07 Jan 2025 20:20:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5695,13 +5695,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc=\""
+          "Value": "W/\"OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "iu4xsjttey"
+          "Value": "m81e9llzmv"
         },
         {
           "Name": "label",
@@ -5709,12 +5709,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc="
+          "Value": "sha256-OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q="
         }
       ]
     },
     {
-      "Route": "Circle.Web.iu4xsjttey.styles.css",
+      "Route": "Circle.Web.m81e9llzmv.styles.css",
       "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\scopedcss\\bundle\\Circle.Web.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5732,11 +5732,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc=\""
+          "Value": "\"OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Dec 2024 12:00:02 GMT"
+          "Value": "Tue, 07 Jan 2025 20:20:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5746,7 +5746,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "iu4xsjttey"
+          "Value": "m81e9llzmv"
         },
         {
           "Name": "label",
@@ -5754,13 +5754,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc="
+          "Value": "sha256-OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q="
         }
       ]
     },
     {
-      "Route": "Circle.Web.iu4xsjttey.styles.css.gz",
-      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\kpjfb3gdfl-iu4xsjttey.gz",
+      "Route": "Circle.Web.m81e9llzmv.styles.css.gz",
+      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\kpjfb3gdfl-m81e9llzmv.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5769,7 +5769,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "541"
+          "Value": "542"
         },
         {
           "Name": "Content-Type",
@@ -5777,11 +5777,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vJqlwYcY8IMz7BbyxK1jIvEoR6jaYDRRh1T7RLp2c98=\""
+          "Value": "\"qYlJWwhA+bfrl+WtGQZS6E2RnSjwjyae2CQQ/N3lR3c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Dec 2024 12:00:02 GMT"
+          "Value": "Tue, 07 Jan 2025 20:20:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5799,7 +5799,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "iu4xsjttey"
+          "Value": "m81e9llzmv"
         },
         {
           "Name": "label",
@@ -5807,18 +5807,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-vJqlwYcY8IMz7BbyxK1jIvEoR6jaYDRRh1T7RLp2c98="
+          "Value": "sha256-qYlJWwhA+bfrl+WtGQZS6E2RnSjwjyae2CQQ/N3lR3c="
         }
       ]
     },
     {
       "Route": "Circle.Web.styles.css",
-      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\kpjfb3gdfl-iu4xsjttey.gz",
+      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\kpjfb3gdfl-m81e9llzmv.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001845018450"
+          "Quality": "0.001841620626"
         }
       ],
       "ResponseHeaders": [
@@ -5828,15 +5828,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "541"
+          "Value": "542"
         },
         {
           "Name": "ETag",
-          "Value": "\"vJqlwYcY8IMz7BbyxK1jIvEoR6jaYDRRh1T7RLp2c98=\""
+          "Value": "\"qYlJWwhA+bfrl+WtGQZS6E2RnSjwjyae2CQQ/N3lR3c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Dec 2024 12:00:02 GMT"
+          "Value": "Tue, 07 Jan 2025 20:20:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5856,13 +5856,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc=\""
+          "Value": "W/\"OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc="
+          "Value": "sha256-OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q="
         }
       ]
     },
@@ -5885,11 +5885,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc=\""
+          "Value": "\"OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Dec 2024 12:00:02 GMT"
+          "Value": "Tue, 07 Jan 2025 20:20:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5899,13 +5899,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ym7nGskf75Y0U62MkHD79koWQ//Hy5OCMVHMoeG5WCc="
+          "Value": "sha256-OtVOJ5hU7MbWOMhOiy4sLCDmnuDDaZChm8s5zMPeZ5Q="
         }
       ]
     },
     {
       "Route": "Circle.Web.styles.css.gz",
-      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\kpjfb3gdfl-iu4xsjttey.gz",
+      "AssetFile": "C:\\Users\\Asya\\Desktop\\az\\Social Media\\Circle\\Circle\\Web\\Circle.Web\\obj\\Debug\\net9.0\\compressed\\kpjfb3gdfl-m81e9llzmv.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5914,7 +5914,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "541"
+          "Value": "542"
         },
         {
           "Name": "Content-Type",
@@ -5922,11 +5922,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vJqlwYcY8IMz7BbyxK1jIvEoR6jaYDRRh1T7RLp2c98=\""
+          "Value": "\"qYlJWwhA+bfrl+WtGQZS6E2RnSjwjyae2CQQ/N3lR3c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Dec 2024 12:00:02 GMT"
+          "Value": "Tue, 07 Jan 2025 20:20:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5944,7 +5944,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vJqlwYcY8IMz7BbyxK1jIvEoR6jaYDRRh1T7RLp2c98="
+          "Value": "sha256-qYlJWwhA+bfrl+WtGQZS6E2RnSjwjyae2CQQ/N3lR3c="
         }
       ]
     },
