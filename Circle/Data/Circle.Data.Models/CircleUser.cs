@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Circle.Data.Models
 {
-	public class CircleUser : IdentityUser //i forgot how to inherit more
+	public class CircleUser : IdentityUser  //i forgot how to inherit more
 	{
         public string Id { get; set; } = Guid.NewGuid().ToString(); //Yes i have not inheritated the BaseEnitity -S
          //Example Id for reference: e639a8c5-d9ab-43ec-81a3-e3f49a5c9ead
