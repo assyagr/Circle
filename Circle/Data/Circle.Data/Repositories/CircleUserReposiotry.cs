@@ -10,12 +10,12 @@ namespace Circle.Data.Repositories
 
 
 
-    public class CircleRepository : ICircleUserReposiotry //I should just inherit the base repo but
+    public class CircleUserRepository : ICircleUserReposiotry //I should just inherit the base repo but
         // i get error that i dont have Circle.Data.Model.Cricle conversion to Cricle.Data.Model.BaseE
     {
         protected readonly CircleDbContext _dbContext;
 
-        protected CircleRepository(CircleDbContext _dbContext) //inject db 
+        protected CircleUserRepository(CircleDbContext _dbContext) //inject db 
         {
             this._dbContext = _dbContext;
         }
