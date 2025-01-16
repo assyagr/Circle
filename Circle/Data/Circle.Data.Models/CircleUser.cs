@@ -16,36 +16,38 @@ namespace Circle.Data.Models
         public string DisplayName { get; set; }
 		public string Bio {  get; set; }	
 		public Attachment ProfilePictureCloudUrl { get; set; }
-		
-
-
-
-		
-		public string Email {  get; set; }	
-		public string Password { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow; //time apon creation 
 
+        public string TypeOfAurdiance { get; set; } //who he is (audiance)
 
-
-        public List<CircleUser> Friends { get; set; }	
-		public List<CircleUser> Followers { get; set; }
-		public List<CircleUser> Following { get; set; }		
-
-		//Suggestion:
-		//public int GroupCricle {  get; set; } // App circle to have friend cricles/Groups but diffrent ig Ui is a circle :p
-	
+        // public string CricleRole { get; set; } //Admin, User, Mod ??
 
 
 
-		///public Attachment ProfilePicture { get; set; }
 
-		///public List<CircleUser> Friends { get; set; }
 
-		///public List<CircleUser> Followers { get; set; }
 
-		///public List<CircleUser> Following { get; set; }
 
-		//ADD MORE PROPERTIES?
-		//username=email?
-	}
+        public List<CircleUser> Friends { get; set; }
+        public List<CircleUser> Followers { get; set; }
+		public List<CircleUser> Following { get; set; }
+        public List<CirclePost> Posts { get; set; } //Posts by user
+
+        //Suggestion:
+        //public int GroupCricle {  get; set; } // App circle to have friend cricles/Groups but diffrent ig Ui is a circle :p
+
+
+
+
+        ///public Attachment ProfilePicture { get; set; }
+
+        ///public List<CircleUser> Friends { get; set; }
+
+        ///public List<CircleUser> Followers { get; set; }
+
+        ///public List<CircleUser> Following { get; set; }
+
+        //ADD MORE PROPERTIES?
+        //username=email?
+    }
 }
