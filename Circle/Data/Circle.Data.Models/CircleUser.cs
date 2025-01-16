@@ -9,13 +9,13 @@ namespace Circle.Data.Models
 {
 	public class CircleUser : IdentityUser
 	{
-		///public Attachment ProfilePicture { get; set; }
+		public Attachment ProfilePicture { get; set; }
 
-		///public List<CircleUser> Friends { get; set; }
+		public List<CircleUser> Friends { get; set; }
 
-		///public List<CircleUser> Followers { get; set; }
+		public List<CircleUser> Followers { get; set; }
 
-		///public List<CircleUser> Following { get; set; }
+		public List<CircleUser> Following { get; set; }
 
 		//ADD MORE PROPERTIES?
 		//username=email?

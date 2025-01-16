@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Circle.Data.Models", "Data\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Circle.Web.Models", "Web\Circle.Web.Models\Circle.Web.Models.csproj", "{FFB6374C-1B04-4CA2-9FC8-C30E03A00D19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Circle.Service.Mappings", "Service\Circle.Service.Mappings\Circle.Service.Mappings.csproj", "{643324EA-3E7A-4DE2-A686-7B3267AB3BD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{FFB6374C-1B04-4CA2-9FC8-C30E03A00D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFB6374C-1B04-4CA2-9FC8-C30E03A00D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFB6374C-1B04-4CA2-9FC8-C30E03A00D19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{643324EA-3E7A-4DE2-A686-7B3267AB3BD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{643324EA-3E7A-4DE2-A686-7B3267AB3BD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{643324EA-3E7A-4DE2-A686-7B3267AB3BD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{643324EA-3E7A-4DE2-A686-7B3267AB3BD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +68,6 @@ Global
 		{679924D5-CA6D-41C3-95AD-809C95C9B404} = {31462B31-7F71-4EDE-848D-5C3900DAFF24}
 		{2526CB41-2AC6-4748-862A-D64FA6F5F373} = {885E119D-4CA3-4F3D-97A8-D406A59C4E2C}
 		{FFB6374C-1B04-4CA2-9FC8-C30E03A00D19} = {41E13F12-4628-488F-BFC3-A2AD91DE8F0A}
+		{643324EA-3E7A-4DE2-A686-7B3267AB3BD3} = {31462B31-7F71-4EDE-848D-5C3900DAFF24}
 	EndGlobalSection
 EndGlobal
