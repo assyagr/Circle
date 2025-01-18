@@ -30,24 +30,26 @@ namespace Circle.Service
             return entity;
         }
 
-        public Task<T> DeleteAsync(T entity)
+        public async Task<T> DeleteAsync(T entity)
         {
-            throw new NotImplementedException();
+            await _repository.DeleteAsync(entity);
+            return entity; //Where do it return?
         }
 
-        public Task<T> EditAsync(T entity)
+        public async Task<T> EditAsync(T entity)
         {
-            throw new NotImplementedException();
+            await _repository.EditAsync(entity);
+            return entity;
         }
 
         public IQueryable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return this._repository.GetAll(); 
         }
 
         public IQueryable<T> GetAllNoTracking()
         {
-            throw new NotImplementedException();
+            return this._repository.GetAllNoTracking(); 
         }
     }
 }
