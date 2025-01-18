@@ -20,7 +20,10 @@ namespace Circle.Data.Models
 
         public string TypeOfAurdiance { get; set; } //who he is (audiance)
 
-        // public string CricleRole { get; set; } //Admin, User, Mod ??
+        public string CricleRole { get; set; } //Admin, User, Mod ??
+
+        public bool IsDeleted { get; set; } // soft delete 
+
 
 
 

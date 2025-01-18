@@ -17,5 +17,7 @@ namespace Circle.Data.Models
 		public List<UserPostComment> Comments { get; set; }
 
 		public List<CircleUser> TaggedUsers { get; set; }
-	}
+
+		public bool isDeleted { get; set; }
+    }
 }
