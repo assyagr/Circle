@@ -19,5 +19,36 @@ namespace Circle.Data
         {
         }
 
-	}
+
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Configured the relationship between CirclePost and CircleUser
+            modelBuilder.Entity<CirclePost>()
+                .HasOne(p => p.CreatedBy)
+                .WithMany()
+                .HasForeignKey("CreatedById")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CirclePost>()
+                .HasOne(p => p.UpdatedBy)
+                .WithMany()
+                .HasForeignKey("UpdatedById")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CirclePost>()
+                .HasOne(p => p.DeletedBy)
+                .WithMany()
+                .HasForeignKey("DeletedById")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            
+        }
+
+
+
+    }
 }
