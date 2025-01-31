@@ -9,14 +9,14 @@ namespace Circle.Service.Models
 {
 	public class CircleUserServiceModel : IdentityUser
 	{
-		public string DisplayName { get; set; }
+		//public string DisplayName { get; set; }
 
 		public DateTime CreatedAt { get; set; } = DateTime.UtcNow; //time apon creation 
 
 		//public string TypeOfAurdiance { get; set; } //who he is (audiance) ???
 
-		public string CricleRole { get; set; } //Admin, User, Mod ??
+		public string CircleRole { get; set; } //Admin, User??
 
-		public bool IsDeleted { get; set; } // soft delete 
+		//public bool IsDeleted { get; set; } // soft delete 
 	}
 }

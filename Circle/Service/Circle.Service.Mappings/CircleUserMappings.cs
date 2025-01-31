@@ -16,10 +16,10 @@ namespace Circle.Service.Mappings
 			{
 				Email = model.Email,
 				PasswordHash = model.PasswordHash, //nz dali e tochno passwordhash ama mai da
-				DisplayName = model.DisplayName,
+				//DisplayName = model.DisplayName,
 				CreatedAt = model.CreatedAt,
-				CricleRole = model.CricleRole,
-				IsDeleted = model.IsDeleted
+				CircleRole = model.CircleRole
+				//IsDeleted = model.IsDeleted
 			};
 		}
 
@@ -29,10 +29,10 @@ namespace Circle.Service.Mappings
 			{
 				Email = entity.Email,
 				PasswordHash = entity.PasswordHash, //nz dali e tochno passwordhash ama mai da
-				DisplayName = entity.DisplayName,
+				//DisplayName = entity.DisplayName,
 				CreatedAt = entity.CreatedAt,
-				CricleRole = entity.CricleRole,
-				IsDeleted = entity.IsDeleted
+				CircleRole = entity.CircleRole
+				//IsDeleted = entity.IsDeleted
 			};
 		}
 	}

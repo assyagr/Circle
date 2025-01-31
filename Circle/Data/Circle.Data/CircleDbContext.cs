@@ -19,9 +19,6 @@ namespace Circle.Data
         {
         }
 
-
-
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -44,11 +41,6 @@ namespace Circle.Data
                 .WithMany()
                 .HasForeignKey("DeletedById")
                 .OnDelete(DeleteBehavior.Restrict);
-
-            
         }
-
-
-
     }
 }
