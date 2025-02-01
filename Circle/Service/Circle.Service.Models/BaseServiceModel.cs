@@ -8,6 +8,6 @@ namespace Circle.Service.Models
 {
 	public abstract class BaseServiceModel
 	{
-		public string Id { get; set; }
+		public string Id { get; set; } = Guid.NewGuid().ToString();
 	}
 }
