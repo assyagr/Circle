@@ -1,0 +1,25 @@
+﻿@using Circle.Web.Models.Post
+@model CreatePostModel
+
+<form asp-controller="Post" asp-action="CreateConfirm" method="post" id="create-post-form" class="w-50" enctype="multipart/form-data">
+    <h2>New Post</h2>
+    <hr />
+    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+    <div class="form-floating mb-3">
+        <input asp-for="@Model.Caption" class="form-control" aria-required="true" placeholder="inspire" />
+        <label asp-for="@Model.Caption" class="form-label">Caption</label>
+    </div>
+    <div>
+        <label asp-for="@Model.Content" class="form-label">Photos</label>
+        <input asp-for="@Model.Content" class="form-control for-control-lg" aria-required="true" id="formFileLg" type="file" multiple>
+    </div>
+    <br>
+    <div class="form-floating mb-3">
+        <input type="hidden" asp-for="@Model.TaggedUsers" hidden disabled/>
+        <input class="form-control" placeholder="tag someone" />
+        <label class="form-label">Your Friends</label>
+    </div>
+    <div>
+        <button id="post-submit" type="submit" class="w-100 btn btn-lg btn-primary">Post</button>
+    </div>
+</form>
