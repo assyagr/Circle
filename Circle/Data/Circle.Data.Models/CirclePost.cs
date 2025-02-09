@@ -8,16 +8,18 @@ namespace Circle.Data.Models
 {
 	public class CirclePost : MetadataBaseEntity
 	{
-		public List<Attachment> Content { get; set; }
+		public List<Attachment>? Content { get; set; }
 
-		public string Caption { get; set; }
+		public string? Caption { get; set; }
 
-		public List<UserPostReaction> Reactions { get; set; }
+		public List<UserPostReaction>? Reactions { get; set; }
 
-		public List<UserPostComment> Comments { get; set; }
+		public List<UserPostComment>? Comments { get; set; }
 
-		public List<CircleUser> TaggedUsers { get; set; }
+		public List<CircleUser>? TaggedUsers { get; set; }
 
-		public bool IsDeleted { get; set; }
+		public List<Flag>? Flags { get; set; }
+
+		//public bool IsDeleted { get; set; }
     }
 }

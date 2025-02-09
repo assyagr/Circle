@@ -14,6 +14,8 @@ namespace Circle.Data
 
         public DbSet<Reaction> Reactions { get; set; }
 
+        public DbSet<Flag> Flags { get; set; }
+
 		public CircleDbContext(DbContextOptions<CircleDbContext> options)
             : base(options)
         {

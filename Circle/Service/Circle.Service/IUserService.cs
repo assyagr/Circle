@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Circle.Data.Migrations;
 using Circle.Service.Models;
 
 namespace Circle.Service

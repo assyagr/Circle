@@ -14,5 +14,7 @@ namespace Circle.Web.Models.Post
 		public string Caption { get; set; }
 
 		public List<string> TaggedUsers { get; set; }
-	}
+
+		public List<string>? Flags { get; set; }
+ 	}
 }

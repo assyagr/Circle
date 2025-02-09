@@ -12,15 +12,7 @@ namespace Circle.Service.Mappings
 	{
 		public static CircleUser ToEntity(this CircleUserServiceModel model)
 		{
-			return new CircleUser
-			{
-				Email = model.Email,
-				PasswordHash = model.PasswordHash, //nz dali e tochno passwordhash ama mai da
-				//DisplayName = model.DisplayName,
-				CreatedAt = model.CreatedAt,
-				CircleRole = model.CircleRole
-				//IsDeleted = model.IsDeleted
-			};
+			return new CircleUser();
 		}
 
 		public static CircleUserServiceModel ToModel(this CircleUser entity)
@@ -28,11 +20,9 @@ namespace Circle.Service.Mappings
 			return new CircleUserServiceModel
 			{
 				Email = entity.Email,
-				PasswordHash = entity.PasswordHash, //nz dali e tochno passwordhash ama mai da
 				//DisplayName = entity.DisplayName,
-				CreatedAt = entity.CreatedAt,
-				CircleRole = entity.CircleRole
-				//IsDeleted = entity.IsDeleted
+				Id = entity.Id,
+				UserName = entity.UserName
 			};
 		}
 	}

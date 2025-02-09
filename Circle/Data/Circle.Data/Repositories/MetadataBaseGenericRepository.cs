@@ -14,7 +14,7 @@ namespace Circle.Data.Repositories
 	{
 		private readonly IHttpContextAccessor _httpContextAccessor;
 
-		public MetadataBaseGenericRepository(CircleDbContext _dbContext, IHttpContextAccessor httpContextAccessor) : base(_dbContext)
+		public MetadataBaseGenericRepository(CircleDbContext dbContext, IHttpContextAccessor httpContextAccessor) : base(dbContext)
 		{
 			this._httpContextAccessor = httpContextAccessor;
 		}

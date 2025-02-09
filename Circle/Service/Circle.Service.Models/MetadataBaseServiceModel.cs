@@ -12,12 +12,12 @@ namespace Circle.Service.Models
 
 		public DateTime CreatedOn { get; set; }
 
-		public CircleUserServiceModel UpdatedBy { get; set; }
+		public CircleUserServiceModel? UpdatedBy { get; set; }
 
-		public DateTime UpdatedOn { get; set; }
+		public DateTime? UpdatedOn { get; set; }
 
-		public CircleUserServiceModel DeletedBy { get; set; }
+		public CircleUserServiceModel? DeletedBy { get; set; }
 
-		public DateTime DeletedOn { get; set; }
+		public DateTime? DeletedOn { get; set; }
 	}
 }
