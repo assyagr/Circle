@@ -16,4 +16,10 @@
     <ProjectReference Include="..\Circle.Service.Models\Circle.Service.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Circle.Service.Mappings">
+      <HintPath>..\Circle.Service.Mappings\obj\Debug\net9.0\Circle.Service.Mappings.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

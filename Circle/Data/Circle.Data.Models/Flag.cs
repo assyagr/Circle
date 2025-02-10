@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Circle.Data.Models
 {
-	public class Attachment : BaseEntity
+	public class Flag : MetadataBaseEntity
 	{
-		public string? CloudUrl { get; set; }
+		public string Label { get; set; }
 	}
 }

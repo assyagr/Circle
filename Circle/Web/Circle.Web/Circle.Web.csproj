@@ -25,7 +25,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\Circle.Data.Models\Circle.Data.Models.csproj" />
     <ProjectReference Include="..\..\Data\Circle.Data\Circle.Data.csproj" />
+    <ProjectReference Include="..\..\Service\Circle.Service.Mappings\Circle.Service.Mappings.csproj" />
+    <ProjectReference Include="..\..\Service\Circle.Service.Models\Circle.Service.Models.csproj" />
+    <ProjectReference Include="..\..\Service\Circle.Service\Circle.Service.csproj" />
+    <ProjectReference Include="..\Circle.Web.Models\Circle.Web.Models.csproj" />
   </ItemGroup>
 
 </Project>

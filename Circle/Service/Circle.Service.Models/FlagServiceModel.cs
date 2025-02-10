@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Circle.Data.Models
+namespace Circle.Service.Models
 {
-	public class Attachment : BaseEntity
+	public class FlagServiceModel : MetadataBaseServiceModel
 	{
-		public string? CloudUrl { get; set; }
+		public string Label { get; set; }
 	}
 }

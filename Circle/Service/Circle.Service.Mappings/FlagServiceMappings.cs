@@ -8,20 +8,19 @@ using System.Threading.Tasks;
 
 namespace Circle.Service.Mappings
 {
-	public static class ReactionMappings
+	public static class FlagServiceMappings
 	{
-		public static Reaction ToEntity(this ReactionServiceModel model)
+		public static Flag ToEntity(this FlagServiceModel model)
 		{
-			return new Reaction
+			return new Flag
 			{
-				Label = model.Label,
-				Emote = model.Emote.ToEntity()
+				Label = model.Label
 			};
 		}
 
-		public static ReactionServiceModel ToModel(this Reaction entity)
+		public static FlagServiceModel ToModel(this Flag entity)
 		{
-			return new ReactionServiceModel
+			return new FlagServiceModel
 			{
 				Id = entity.Id,
 				CreatedBy = entity.CreatedBy.ToModel(),
@@ -30,8 +29,7 @@ namespace Circle.Service.Mappings
 				UpdatedOn = entity.UpdatedOn,
 				DeletedBy = entity.DeletedBy?.ToModel(),
 				DeletedOn = entity.DeletedOn,
-				Label = entity.Label,
-				Emote = entity.Emote?.ToModel()
+				Label = entity.Label
 			};
 		}
 	}

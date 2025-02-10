@@ -1,5 +1,8 @@
 using Circle.Data;
 using Circle.Data.Models;
+using Circle.Data.Repositories;
+using Circle.Service.Post;
+using Gettit.Web.Seed;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,9 +14,21 @@ builder.Services.AddDbContext<CircleDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+// Application Repositories
+builder.Services.AddTransient<AttachmentRepository>();
+builder.Services.AddTransient<CirclePostRepository>();
+builder.Services.AddTransient<CommentRepository>();
+builder.Services.AddTransient<ReactionRepository>();
+
+// Application Services
+builder.Services.AddTransient<ICirclePostService, CirclePostService>();
+
 builder.Services.AddDefaultIdentity<CircleUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CircleDbContext>();
+
+//builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -29,6 +44,8 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseDatabaseSeed();
 
 app.UseHttpsRedirection();
 app.UseRouting();

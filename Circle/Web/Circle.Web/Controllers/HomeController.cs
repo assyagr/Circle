@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using AspNetCoreGeneratedDocument;
 using Circle.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,6 +16,10 @@ namespace Circle.Controllers
 
         public IActionResult Index()
         {
+            if(User.Identity.IsAuthenticated == false)
+            {
+                return View("IndexNotLogged");
+            }
             return View();
         }
 

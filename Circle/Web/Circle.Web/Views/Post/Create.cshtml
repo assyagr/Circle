@@ -1,0 +1,57 @@
+﻿@using Circle.Data.Models
+@using Circle.Web.Models.Post
+@model CreatePostModel
+
+<form asp-controller="Post" asp-action="CreateConfirm" method="post" id="create-post-form" class="w-50" enctype="multipart/form-data">
+    <h2>New Post</h2>
+    <hr />
+    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+    <div class="form-floating mb-3">
+        <input asp-for="@Model.Caption" class="form-control" aria-required="true" placeholder="inspire" />
+        <label asp-for="@Model.Caption" class="form-label">Caption</label>
+    </div>
+    <div>
+        <label asp-for="@Model.Content" class="form-label">Photos</label>
+        <input asp-for="@Model.Content" class="form-control for-control-lg" aria-required="true" type="file" multiple>
+    </div>
+    <br>
+    <div class="form-floating mb-3">
+        <input type="hidden" asp-for="@Model.TaggedUsers" hidden disabled/>
+        <input class="form-control" placeholder="tag someone" />
+        <label class="form-label">Your Friends</label>
+    </div>
+    <div class="mb-3">
+        <input type="hidden" asp-for="@Model.Flags" hidden disabled />
+        <label class="form-label">Flags</label>
+        <div class="form-flags-input">
+            <div class="created-flags d-flex justify-content-start">
+                <span class="created-flag">#dice</span>
+                <span class="created-flag">#green</span>
+                <span class="created-flag">#blue</span>
+            </div>
+            <input class="form-flags-input-field" maxlength="20"/>
+        </div>
+    <div>
+        <button type="button" class="btn btn-secondary">Post</button>
+    </div>
+</form>
+
+@*
+<script>
+    const currentFlags = [];
+
+    document.querySelector('.form-flags-input'.addEventListener('click', () => {
+        document.querySelector('.form-flags-input-field').focus();
+    }
+
+    document.querySelector('.form-flags-input-field').addEventListener('keyup', (e) => {
+        if((e.key == 'Enter' || e.keyCode == 13)){
+            if(!currentFlags.includes(e.target.value)){
+                currentFlags.push(e.target.value);
+                console.log(e.target.value);
+            }
+            e.target.value = '';
+        }
+    });
+</script>
+*@

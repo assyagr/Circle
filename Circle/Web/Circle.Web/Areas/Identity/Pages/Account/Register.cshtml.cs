@@ -19,11 +19,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Circle.Data.Models;
+using Circle.Data.Repositories;
 
 namespace Circle.Web.Areas.Identity.Pages.Account
 {
 	public class RegisterModel : PageModel
 	{
+		private const string AdministratorRole = "Administrator";
+
+		private const string UserRole = "User";
+
 		private readonly SignInManager<CircleUser> _signInManager;
 		private readonly UserManager<CircleUser> _userManager;
 		private readonly IUserStore<CircleUser> _userStore;
@@ -84,13 +89,13 @@ namespace Circle.Web.Areas.Identity.Pages.Account
 				{
 					if (_userManager.Users.Count() == 1)
 					{
-						await _userManager.AddToRoleAsync(user, "Administrator");
-						user.CircleRole = "Administrator";
+						await _userManager.AddToRoleAsync(user, AdministratorRole);
+						user.CircleRole = AdministratorRole;
 					}
 					else
 					{
-						await _userManager.AddToRoleAsync(user, "User");
-						user.CircleRole = "User";
+						await _userManager.AddToRoleAsync(user, UserRole);
+						user.CircleRole = UserRole;
 					}
 
 					await _signInManager.SignInAsync(user, isPersistent: false);

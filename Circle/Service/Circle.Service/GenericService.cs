@@ -10,16 +10,16 @@ using Circle.Data.Repositories;
 
 namespace Circle.Service
 {
-    public abstract class GenericService<T> : IGenericService<T> where T : BaseEntity
+    public abstract class GenericService<TEntity, TModel> : IGenericService<TEntity, TModel> where TModel : BaseEntity
     {
-        private readonly IGenericRepository<T> _repository;
+        private readonly IGenericRepository<TModel> _repository;
 
-        public GenericService(IGenericRepository<T> repository)
+        public GenericService(IGenericRepository<TModel> repository)
         {
             this._repository = repository;
         }
 
-        public async Task<T> CreateAsync(T entity)
+        public async Task<TModel> CreateAsync(TModel entity)
         {
             if (entity == null)
             {
@@ -30,24 +30,24 @@ namespace Circle.Service
             return entity;
         }
 
-        public async Task<T> DeleteAsync(T entity)
+        public async Task<TModel> DeleteAsync(TModel entity)
         {
             await _repository.DeleteAsync(entity);
             return entity; //Where do it return?
         }
 
-        public async Task<T> EditAsync(T entity)
+        public async Task<TModel> EditAsync(TModel entity)
         {
             await _repository.EditAsync(entity);
             return entity;
         }
 
-        public IQueryable<T> GetAll()
+        public IQueryable<TModel> GetAll()
         {
             return this._repository.GetAll(); 
         }
 
-        public IQueryable<T> GetAllNoTracking()
+        public IQueryable<TModel> GetAllNoTracking()
         {
             return this._repository.GetAllNoTracking(); 
         }

@@ -20,7 +20,7 @@ namespace Circle.Data.Repositories
 		public virtual async Task<TEntity> CreateAsync(TEntity entity)
 		{
 			await this._dbContext.AddAsync(entity);
-			await this._dbContext.SaveChangesAsync(); //For quick reference 
+			await this._dbContext.SaveChangesAsync();
 			return entity;
 		}
 

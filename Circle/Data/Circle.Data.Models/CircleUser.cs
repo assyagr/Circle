@@ -14,11 +14,11 @@ namespace Circle.Data.Models
         // also SecurityStamp 
         //Example Id for reference: e639a8c5-d9ab-43ec-81a3-e3f49a5c9ead
 
-        //dont need? // public string DisplayName { get; set; }
+        //public string DisplayName { get; set; }
         
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow; //time apon creation 
+        //public UserProfile Profile { get; set; }
 
-        //public string TypeOfAudience { get; set; } //who he is (audiance) ???
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow; //time apon creation
 
         public string? CircleRole { get; set; } //Admin, User ??
 
