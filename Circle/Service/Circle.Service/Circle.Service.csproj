@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Data\Circle.Data.Models\Circle.Data.Models.csproj" />
     <ProjectReference Include="..\..\Data\Circle.Data\Circle.Data.csproj" />
     <ProjectReference Include="..\Circle.Service.Models\Circle.Service.Models.csproj" />

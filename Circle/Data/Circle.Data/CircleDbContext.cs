@@ -14,7 +14,8 @@ namespace Circle.Data
 
         public DbSet<Reaction> Reactions { get; set; }
 
-		public CircleDbContext(DbContextOptions<CircleDbContext> options)
+
+        public CircleDbContext(DbContextOptions<CircleDbContext> options)
             : base(options)
         {
         }
@@ -26,19 +27,19 @@ namespace Circle.Data
             // Configured the relationship between CirclePost and CircleUser
             modelBuilder.Entity<CirclePost>()
                 .HasOne(p => p.CreatedBy)
-                .WithMany()
+                .WithOne()
                 .HasForeignKey("CreatedById")
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<CirclePost>()
                 .HasOne(p => p.UpdatedBy)
-                .WithMany()
+                .WithOne()
                 .HasForeignKey("UpdatedById")
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<CirclePost>()
                 .HasOne(p => p.DeletedBy)
-                .WithMany()
+                .WithOne()
                 .HasForeignKey("DeletedById")
                 .OnDelete(DeleteBehavior.Restrict);
         }
