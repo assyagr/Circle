@@ -4,6 +4,7 @@ using Circle.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Circle.Data.Migrations
 {
     [DbContext(typeof(CircleDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250212173317_CreatedByIdConfig")]
+    partial class CreatedByIdConfig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,30 +25,20 @@ namespace Circle.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("AttachmentCirclePost", b =>
-                {
-                    b.Property<string>("CirclePostId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ContentId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("CirclePostId", "ContentId");
-
-                    b.HasIndex("ContentId");
-
-                    b.ToTable("AttachmentCirclePost");
-                });
-
             modelBuilder.Entity("Circle.Data.Models.Attachment", b =>
                 {
                     b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CirclePostId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CloudUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CirclePostId");
 
                     b.ToTable("Attachments");
                 });
@@ -533,19 +526,11 @@ namespace Circle.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("AttachmentCirclePost", b =>
+            modelBuilder.Entity("Circle.Data.Models.Attachment", b =>
                 {
                     b.HasOne("Circle.Data.Models.CirclePost", null)
-                        .WithMany()
-                        .HasForeignKey("CirclePostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Circle.Data.Models.Attachment", null)
-                        .WithMany()
-                        .HasForeignKey("ContentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Content")
+                        .HasForeignKey("CirclePostId");
                 });
 
             modelBuilder.Entity("Circle.Data.Models.CirclePost", b =>
@@ -809,6 +794,8 @@ namespace Circle.Data.Migrations
             modelBuilder.Entity("Circle.Data.Models.CirclePost", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("Content");
 
                     b.Navigation("Reactions");
                 });

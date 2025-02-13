@@ -15,6 +15,6 @@ namespace Circle.Web.Models.Post
 
 		public List<string> TaggedUsers { get; set; }
 
-		public List<string>? Flags { get; set; }
+		public List<string>? Hashtags { get; set; }
  	}
 }

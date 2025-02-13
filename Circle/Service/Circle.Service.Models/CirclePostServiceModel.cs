@@ -18,7 +18,7 @@ namespace Circle.Service.Models
 
 		public List<CircleUserServiceModel>? TaggedUsers { get; set; }
 
-		public List<FlagServiceModel>? Flags { get; set; }
+		public List<HashtagServiceModel>? Hashtags { get; set; }
 
 		//public bool IsDeleted { get; set; }
 	}

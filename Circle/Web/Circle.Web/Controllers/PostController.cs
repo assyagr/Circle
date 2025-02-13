@@ -1,9 +1,12 @@
 ﻿using Circle.Service.Models;
-using Circle.Service.Post;
 using Circle.Web.Models.Post;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mail;
 using System.Linq;
+using Circle.Service.Cloudinary;
+using Circle.Service.Post;
+using Circle.Service;
+using Circle.Data.Migrations;
 
 namespace Circle.Web.Controllers
 {
@@ -11,16 +14,22 @@ namespace Circle.Web.Controllers
 	{
 		private readonly ICirclePostService circlePostService;
 
-		//private readonly ICloudinaryService cloudinaryService;
+		private readonly ICircleUserService circleUserService;
 
-		public PostController(ICirclePostService circlePostService)
+		private readonly ICloudinaryService cloudinaryService;
+
+		public PostController(ICirclePostService circlePostService, ICircleUserService circleUserService, ICloudinaryService cloudinaryService)
 		{
 			this.circlePostService = circlePostService;
+			this.circleUserService = circleUserService;
+			this.cloudinaryService = cloudinaryService;
 		}
 
 		[HttpGet]
-		public IActionResult Create()
+		public async Task<IActionResult> Create()
 		{
+			this.ViewData["Users"] = this.circleUserService.GetAll().Select(user => user.UserName).ToList();
+
 			return View();
 		}
 
@@ -34,11 +43,37 @@ namespace Circle.Web.Controllers
 				photos.Add(new AttachmentServiceModel { CloudUrl = await this.UploadPhoto(photo) });
 			}
 
+			//List<string> taggedUsersUsernames = createPostModel.TaggedUsers?.Split(',').ToList();
+			List<CircleUserServiceModel> taggedUsers = new List<CircleUserServiceModel>();
+
+			foreach (var taggedUser in createPostModel.TaggedUsers) 
+			{
+				//Doesnt trasnlate Linq so had to do it with foreach
+				CircleUserServiceModel user = null;
+
+				foreach (var u in this.circleUserService.GetAll())
+				{
+					if (u.UserName == taggedUser)
+					{
+						user = u;
+						break;
+					}
+				}
+
+				if (user != null)
+				{
+					taggedUsers.Add(user);
+				}
+			}
+
+			//List<string> hashtagLabels = createPostModel.Hashtags?.Split(',').ToList();
+
 			await this.circlePostService.CreateAsync(new CirclePostServiceModel
 			{
 				Caption = createPostModel.Caption,
-				//todo tagged and flags
-				//TaggedUsers = createPostModel.TaggedUsers,
+				TaggedUsers = taggedUsers,
+				Hashtags = createPostModel.Hashtags?.Select(hashtag => new HashtagServiceModel { Label = hashtag }).ToList(),
+				//Hashtags = hashtagLabels?.Select(hashtag => new HashtagServiceModel { Label = hashtag }).ToList(),
 				Content = photos
 			});
 
@@ -47,14 +82,14 @@ namespace Circle.Web.Controllers
 		
 		private async Task<string> UploadPhoto(IFormFile photo)
 		{
-			//var uploadResponse = await this.cloudinaryService.UploadFile(photo);
+			var uploadResponse = await this.cloudinaryService.UploadFile(photo);
 
-			//if (uploadResponse == null)
-			//{
+			if (uploadResponse == null)
+			{
 				return null;
-			//}
+			}
 		
-			//return uploadResponse["url"].ToString();
+			return uploadResponse["url"].ToString();
 		}
 	}
 }

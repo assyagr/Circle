@@ -8,19 +8,19 @@ using System.Threading.Tasks;
 
 namespace Circle.Service.Mappings
 {
-	public static class FlagServiceMappings
+	public static class HashtagServiceMappings
 	{
-		public static Flag ToEntity(this FlagServiceModel model)
+		public static Hashtag ToEntity(this HashtagServiceModel model)
 		{
-			return new Flag
+			return new Hashtag
 			{
 				Label = model.Label
 			};
 		}
 
-		public static FlagServiceModel ToModel(this Flag entity)
+		public static HashtagServiceModel ToModel(this Hashtag entity)
 		{
-			return new FlagServiceModel
+			return new HashtagServiceModel
 			{
 				Id = entity.Id,
 				CreatedBy = entity.CreatedBy.ToModel(),

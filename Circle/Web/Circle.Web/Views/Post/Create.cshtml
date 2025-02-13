@@ -1,13 +1,19 @@
 ﻿@using Circle.Data.Models
+@using Circle.Service.Models
 @using Circle.Web.Models.Post
+@using Newtonsoft.Json
 @model CreatePostModel
+
+@{
+    var users = (List<string>)this.ViewData["Users"];
+}
 
 <form asp-controller="Post" asp-action="CreateConfirm" method="post" id="create-post-form" class="w-50" enctype="multipart/form-data">
     <h2>New Post</h2>
     <hr />
     <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
     <div class="form-floating mb-3">
-        <input asp-for="@Model.Caption" class="form-control" aria-required="true" placeholder="inspire" />
+        <input asp-for="@Model.Caption" class="form-control" aria-required="true"/>
         <label asp-for="@Model.Caption" class="form-label">Caption</label>
     </div>
     <div>
@@ -15,43 +21,106 @@
         <input asp-for="@Model.Content" class="form-control for-control-lg" aria-required="true" type="file" multiple>
     </div>
     <br>
-    <div class="form-floating mb-3">
-        <input type="hidden" asp-for="@Model.TaggedUsers" hidden disabled/>
-        <input class="form-control" placeholder="tag someone" />
-        <label class="form-label">Your Friends</label>
+    <div class="mb-3">
+        <input id="model-user-tags" type="hidden" asp-for="@Model.TaggedUsers" hidden />
+        <label class="form-label">Tag Users</label>
+        <div class="form-user-tags-input">
+            <div class="created-user-tags">
+                <input class="form-user-tags-input-field" maxlength="20" />
+            </div>
+        </div>
     </div>
     <div class="mb-3">
-        <input type="hidden" asp-for="@Model.Flags" hidden disabled />
-        <label class="form-label">Flags</label>
-        <div class="form-flags-input">
-            <div class="created-flags d-flex justify-content-start">
-                <span class="created-flag">#dice</span>
-                <span class="created-flag">#green</span>
-                <span class="created-flag">#blue</span>
+        <input id="model-hashtags" type="hidden" asp-for="@Model.Hashtags" hidden />
+        <label class="form-label">Hashags</label>
+        <div class="form-hashtags-input">
+            <div class="created-hashtags">
+                <input class="form-hashtags-input-field" maxlength="20" />
             </div>
-            <input class="form-flags-input-field" maxlength="20"/>
         </div>
+    </div>
     <div>
-        <button type="button" class="btn btn-secondary">Post</button>
+        <button type="button" class="btn btn-secondary create-post-form button">Post</button>
     </div>
 </form>
 
-@*
+
 <script>
-    const currentFlags = [];
+    const currentHashtags = [];
 
-    document.querySelector('.form-flags-input'.addEventListener('click', () => {
-        document.querySelector('.form-flags-input-field').focus();
-    }
+    document.querySelector('#create-post-form button').addEventListener('click', (e) => {
+        document.querySelector('#create-post-form').submit();
+    });
 
-    document.querySelector('.form-flags-input-field').addEventListener('keyup', (e) => {
-        if((e.key == 'Enter' || e.keyCode == 13)){
-            if(!currentFlags.includes(e.target.value)){
-                currentFlags.push(e.target.value);
-                console.log(e.target.value);
+    //hashtags
+    document.querySelector('.form-hashtags-input').addEventListener('click', (e) => {
+        document.querySelector('.form-hashtags-input-field').focus();
+    });
+
+    document.querySelector('.form-hashtags-input-field').addEventListener('keyup', (e) => {
+        const enteredValue = e.target.value.trim();
+        if ((e.key === 'Enter' || e.keyCode === 13 || e.keyCode == 32)) {
+            const hashValue = '#' + enteredValue;
+            if (!currentHashtags.includes(enteredValue)) {
+                currentHashtags.push(enteredValue);
+                let hashtagSpan = document.createElement('span');
+                hashtagSpan.classList.add('created-hashtag');
+                hashtagSpan.innerText = hashValue;
+                document.querySelector('.form-hashtags-input').appendChild(hashtagSpan);
+                document.querySelector('#model-hashtags').value = currentHashtags.join(',');
             }
-            e.target.value = '';
+                e.target.value = '';
+        }
+        });
+
+    document.querySelector('.form-hashtags-input-field').addEventListener('keydown', (e) => {
+        if ((e.keyCode === 8 || e.keyCode === 46)) {
+            if (e.target.value === '') {
+                currentHashtags.pop();
+                let hashtags = document.querySelectorAll('.created-hashtag');
+                hashtags[hashtags.length - 1].remove();
+                document.querySelector('#model-hashtags').value = currentHashtags.join(',');
+            }
+        }
+    });
+
+    //user tags
+    var users = @Html.Raw(JsonConvert.SerializeObject(users));
+    const currentUserTags = [];
+
+    document.querySelector('.form-user-tags-input').addEventListener('click', (e) => {
+        document.querySelector('.form-user-tags-input').focus();
+    });
+
+    document.querySelector('.form-user-tags-input-field').addEventListener('keyup', (e) => {
+        const enteredUsername = e.target.value.trim();
+        if ((e.key === 'Enter' || e.keyCode === 13 || e.keyCode == 32)) {
+            if (users.includes(enteredUsername)) {
+                const symbol = "@Html.Raw("@")";
+                const usernameValue = symbol + enteredUsername;
+                if (!currentUserTags.includes(enteredUsername)) {
+                    currentUserTags.push(enteredUsername);
+                    let userTagSpan = document.createElement('span');
+                    userTagSpan.classList.add('created-user-tag');
+                    userTagSpan.innerText = usernameValue;
+                    document.querySelector('.form-user-tags-input').appendChild(userTagSpan);
+                    document.querySelector('#model-user-tags').value = currentUserTags.join(',');
+                }
+                    e.target.value = '';
+            }else{
+            alert("No such username");
+            }
+        }
+    });
+
+    document.querySelector('.form-user-tags-input-field').addEventListener('keydown', (e) => {
+        if ((e.keyCode === 8 || e.keyCode === 46)) {
+            if (e.target.value === '') {
+                currentUserTags.pop();
+                let userTags = document.querySelectorAll('.created-user-tag');
+                userTags[userTags.length - 1].remove();
+                document.querySelector('#model-user-tags').value = currentUserTags.join(',');
+            }
         }
     });
 </script>
-*@

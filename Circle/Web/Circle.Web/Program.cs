@@ -1,6 +1,8 @@
 using Circle.Data;
 using Circle.Data.Models;
 using Circle.Data.Repositories;
+using Circle.Service;
+using Circle.Service.Cloudinary;
 using Circle.Service.Post;
 using Gettit.Web.Seed;
 using Microsoft.AspNetCore.Identity;
@@ -19,9 +21,13 @@ builder.Services.AddTransient<AttachmentRepository>();
 builder.Services.AddTransient<CirclePostRepository>();
 builder.Services.AddTransient<CommentRepository>();
 builder.Services.AddTransient<ReactionRepository>();
+builder.Services.AddTransient<HashtagRepository>();
+builder.Services.AddTransient<CircleUserRepository>();
 
 // Application Services
 builder.Services.AddTransient<ICirclePostService, CirclePostService>();
+builder.Services.AddTransient<ICircleUserService, CircleUserService>();
+builder.Services.AddTransient<ICloudinaryService, CloudinaryService>();
 
 builder.Services.AddDefaultIdentity<CircleUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()

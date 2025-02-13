@@ -1,4 +1,5 @@
 ﻿using Circle.Data.Models;
+using Circle.Data.Extensions;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,35 +15,31 @@ namespace Circle.Data
 
         public DbSet<Reaction> Reactions { get; set; }
 
-        public DbSet<Flag> Flags { get; set; }
+        public DbSet<Hashtag> Hashtags { get; set; }
 
         public CircleDbContext(DbContextOptions<CircleDbContext> options)
             : base(options)
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+		//Configured the relationship between CirclePost and CircleUser
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+			modelBuilder.Entity<CirclePost>()
+				.HasMany(cp => cp.TaggedUsers)
+				.WithMany();
 
-            // Configured the relationship between CirclePost and CircleUser
-            modelBuilder.Entity<CirclePost>()
-                .HasOne(p => p.CreatedBy)
-                .WithOne()
-                .HasForeignKey("CreatedById")
-                .OnDelete(DeleteBehavior.Restrict);
+			modelBuilder.Entity<CirclePost>()
+				.HasMany(cp => cp.Hashtags)
+				.WithMany();
 
-            modelBuilder.Entity<CirclePost>()
-                .HasOne(p => p.UpdatedBy)
-                .WithOne()
-                .HasForeignKey("UpdatedById")
-                .OnDelete(DeleteBehavior.Restrict);
+			modelBuilder.Entity<CirclePost>()
+				.HasMany(cp => cp.Content)
+				.WithMany();
 
-            modelBuilder.Entity<CirclePost>()
-                .HasOne(p => p.DeletedBy)
-                .WithOne()
-                .HasForeignKey("DeletedById")
-                .OnDelete(DeleteBehavior.Restrict);
-        }
+			modelBuilder.ConfigureMetadataEntity<Hashtag>();
+
+			base.OnModelCreating(modelBuilder);
+		}
     }
 }

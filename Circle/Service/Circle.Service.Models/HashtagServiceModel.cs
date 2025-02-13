@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Circle.Service.Models
 {
-	public class FlagServiceModel : MetadataBaseServiceModel
+	public class HashtagServiceModel : MetadataBaseServiceModel
 	{
 		public string Label { get; set; }
 	}

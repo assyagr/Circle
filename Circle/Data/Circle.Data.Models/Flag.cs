@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Circle.Data.Models
 {
-	public class Flag : MetadataBaseEntity
+	public class Hashtag : MetadataBaseEntity
 	{
 		public string Label { get; set; }
 	}
