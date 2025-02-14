@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Circle.Data.Migrations;
 using Circle.Data.Models;
+using Circle.Service.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace Circle.Data.Repositories
 {
@@ -15,18 +19,26 @@ namespace Circle.Data.Repositories
     {
         protected readonly CircleDbContext _dbContext;
 
-        protected CircleUserRepository(CircleDbContext _dbContext) //inject db 
+        public CircleUserRepository(CircleDbContext dbContext) //inject db 
         {
-            this._dbContext = _dbContext;
+            this._dbContext = dbContext;
         }
 
-        public async Task<CircleUser> CreateAsync(CircleUser Userinfo)
+        public async Task<CircleUser> CreateAsync(CircleUser user)
         {
-            await this._dbContext.AddAsync(Userinfo);
+            await this._dbContext.AddAsync(user);
             await this._dbContext.SaveChangesAsync(); 
-            return Userinfo;
+            return user;
         }
 
+		public async Task<CircleUser> DeleteAsync(CircleUser user)
+		{
+			throw new NotImplementedException();
+		}
 
-    }
+		public IQueryable<CircleUser> GetAll()
+		{
+            return this._dbContext.Users;
+		}
+	}
 }

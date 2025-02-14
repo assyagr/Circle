@@ -18,8 +18,6 @@ namespace Circle.Data.Models
 
 		public List<CircleUser>? TaggedUsers { get; set; }
 
-		public List<Flag>? Flags { get; set; }
-
-		//public bool IsDeleted { get; set; }
+		public List<Hashtag>? Hashtags { get; set; }
     }
 }

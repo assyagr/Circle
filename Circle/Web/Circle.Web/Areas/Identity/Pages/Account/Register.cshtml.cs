@@ -20,6 +20,9 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Circle.Data.Models;
 using Circle.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Circle.Data;
+using System.Data.SqlTypes;
 
 namespace Circle.Web.Areas.Identity.Pages.Account
 {
@@ -33,16 +36,19 @@ namespace Circle.Web.Areas.Identity.Pages.Account
 		private readonly UserManager<CircleUser> _userManager;
 		private readonly IUserStore<CircleUser> _userStore;
 		private readonly IUserEmailStore<CircleUser> _emailStore;
+		private readonly CircleUserRepository _circlePostRepository;
 
 		public RegisterModel(
 			UserManager<CircleUser> userManager,
 			IUserStore<CircleUser> userStore,
-			SignInManager<CircleUser> signInManager)
+			SignInManager<CircleUser> signInManager,
+			CircleUserRepository circlePostRepository)
 		{
 			_userManager = userManager;
 			_userStore = userStore;
 			_emailStore = GetEmailStore();
 			_signInManager = signInManager;
+			_circlePostRepository = circlePostRepository;
 		}
 
 		[BindProperty]
@@ -60,7 +66,7 @@ namespace Circle.Web.Areas.Identity.Pages.Account
 			public string Email { get; set; }
 
 			[Required]
-			[StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+			[StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 8)]
 			[DataType(DataType.Password)]
 			[Display(Name = "Password")]
 			public string Password { get; set; }
@@ -77,34 +83,40 @@ namespace Circle.Web.Areas.Identity.Pages.Account
 
 		public async Task<IActionResult> OnPostAsync()
 		{
-			if (ModelState.IsValid)
+			List<string> userEmails = _circlePostRepository.GetAll().Select(user => user.Email).ToList();
+			if (userEmails.Contains(Input.Email))
 			{
+				//ADD PROPER MESSAGE
+				throw new InvalidOperationException("The email is already in use.");
+			}else if (ModelState.IsValid)
+			{
+
 				var user = CreateUser();
 
-				await _userStore.SetUserNameAsync(user, Input.Username, CancellationToken.None);
-				await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-				var result = await _userManager.CreateAsync(user, Input.Password);
+					await _userStore.SetUserNameAsync(user, Input.Username, CancellationToken.None);
+					await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+					var result = await _userManager.CreateAsync(user, Input.Password);
 
-				if (result.Succeeded)
-				{
-					if (_userManager.Users.Count() == 1)
+					if (result.Succeeded)
 					{
-						await _userManager.AddToRoleAsync(user, AdministratorRole);
-						user.CircleRole = AdministratorRole;
-					}
-					else
-					{
-						await _userManager.AddToRoleAsync(user, UserRole);
-						user.CircleRole = UserRole;
-					}
+						if (_userManager.Users.Count() == 1)
+						{
+							await _userManager.AddToRoleAsync(user, AdministratorRole);
+							user.CircleRole = AdministratorRole;
+						}
+						else
+						{
+							await _userManager.AddToRoleAsync(user, UserRole);
+							user.CircleRole = UserRole;
+						}
 
-					await _signInManager.SignInAsync(user, isPersistent: false);
-					return Redirect("/");
-                }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+						await _signInManager.SignInAsync(user, isPersistent: false);
+						return Redirect("/");
+					}
+					foreach (var error in result.Errors)
+					{
+						ModelState.AddModelError(string.Empty, error.Description);
+					}
             }
 
             // If we got this far, something failed, redisplay form

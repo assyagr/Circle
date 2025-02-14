@@ -17,7 +17,7 @@ namespace Circle.Service.Mappings
 				Content = model.Content?.Select(content => content.ToEntity()).ToList(),
 				Caption = model.Caption,
 				TaggedUsers = model.TaggedUsers?.Select(user => user.ToEntity()).ToList(),
-				Flags = model.Flags.Select(flag => flag.ToEntity()).ToList()
+				Hashtags = model.Hashtags?.Select(hashtag => hashtag.ToEntity()).ToList()
 			};
 		}
 
@@ -31,7 +31,7 @@ namespace Circle.Service.Mappings
 				Reactions= entity.Reactions?.Select(reaction => reaction.ToModel()).ToList(),
 				Comments= entity.Comments?.Select(comment => comment.ToModel(UserPostCommentMappingsContext.Post)).ToList(),
 				TaggedUsers = entity.TaggedUsers?.Select(user => user.ToModel()).ToList(),
-				Flags = entity.Flags.Select(flag => flag.ToModel()).ToList()
+				Hashtags = entity.Hashtags?.Select(hashtag => hashtag.ToModel()).ToList()
 			};
 		}
 	}

@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Circle.Service
+namespace Circle.Service.Cloudinary
 {
-    public interface ICloudinaryService
-    {
-
-        Task<Dictionary<string, object>> UploadFile(IFormFile file);
-    }
+	public interface ICloudinaryService
+	{
+		Task<Dictionary<string, object>> UploadFile(IFormFile file);
+	}
 }

@@ -4,6 +4,7 @@ using Circle.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Circle.Data.Migrations
 {
     [DbContext(typeof(CircleDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250210175205_TryConfigureCreatedById")]
+    partial class TryConfigureCreatedById
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,30 +25,20 @@ namespace Circle.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("AttachmentCirclePost", b =>
-                {
-                    b.Property<string>("CirclePostId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ContentId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("CirclePostId", "ContentId");
-
-                    b.HasIndex("ContentId");
-
-                    b.ToTable("AttachmentCirclePost");
-                });
-
             modelBuilder.Entity("Circle.Data.Models.Attachment", b =>
                 {
                     b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CirclePostId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CloudUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CirclePostId");
 
                     b.ToTable("Attachments");
                 });
@@ -94,6 +87,9 @@ namespace Circle.Data.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
+
+                    b.Property<string>("CirclePostId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CircleRole")
                         .HasColumnType("nvarchar(max)");
@@ -146,6 +142,8 @@ namespace Circle.Data.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CirclePostId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -201,13 +199,15 @@ namespace Circle.Data.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("Circle.Data.Models.Hashtag", b =>
+            modelBuilder.Entity("Circle.Data.Models.Flag", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("CirclePostId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("CreatedById")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedOn")
@@ -231,13 +231,15 @@ namespace Circle.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CirclePostId");
+
                     b.HasIndex("CreatedById");
 
                     b.HasIndex("DeletedById");
 
                     b.HasIndex("UpdatedById");
 
-                    b.ToTable("Hashtags");
+                    b.ToTable("Flags");
                 });
 
             modelBuilder.Entity("Circle.Data.Models.Reaction", b =>
@@ -364,36 +366,6 @@ namespace Circle.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserPostReaction");
-                });
-
-            modelBuilder.Entity("CirclePostCircleUser", b =>
-                {
-                    b.Property<string>("CirclePostId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("TaggedUsersId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("CirclePostId", "TaggedUsersId");
-
-                    b.HasIndex("TaggedUsersId");
-
-                    b.ToTable("CirclePostCircleUser");
-                });
-
-            modelBuilder.Entity("CirclePostHashtag", b =>
-                {
-                    b.Property<string>("CirclePostId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("HashtagsId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("CirclePostId", "HashtagsId");
-
-                    b.HasIndex("HashtagsId");
-
-                    b.ToTable("CirclePostHashtag");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -533,19 +505,11 @@ namespace Circle.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("AttachmentCirclePost", b =>
+            modelBuilder.Entity("Circle.Data.Models.Attachment", b =>
                 {
                     b.HasOne("Circle.Data.Models.CirclePost", null)
-                        .WithMany()
-                        .HasForeignKey("CirclePostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Circle.Data.Models.Attachment", null)
-                        .WithMany()
-                        .HasForeignKey("ContentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Content")
+                        .HasForeignKey("CirclePostId");
                 });
 
             modelBuilder.Entity("Circle.Data.Models.CirclePost", b =>
@@ -567,6 +531,13 @@ namespace Circle.Data.Migrations
                     b.Navigation("DeletedBy");
 
                     b.Navigation("UpdatedBy");
+                });
+
+            modelBuilder.Entity("Circle.Data.Models.CircleUser", b =>
+                {
+                    b.HasOne("Circle.Data.Models.CirclePost", null)
+                        .WithMany("TaggedUsers")
+                        .HasForeignKey("CirclePostId");
                 });
 
             modelBuilder.Entity("Circle.Data.Models.Comment", b =>
@@ -594,23 +565,23 @@ namespace Circle.Data.Migrations
                     b.Navigation("UpdatedBy");
                 });
 
-            modelBuilder.Entity("Circle.Data.Models.Hashtag", b =>
+            modelBuilder.Entity("Circle.Data.Models.Flag", b =>
                 {
+                    b.HasOne("Circle.Data.Models.CirclePost", null)
+                        .WithMany("Flags")
+                        .HasForeignKey("CirclePostId");
+
                     b.HasOne("Circle.Data.Models.CircleUser", "CreatedBy")
                         .WithMany()
-                        .HasForeignKey("CreatedById")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .HasForeignKey("CreatedById");
 
                     b.HasOne("Circle.Data.Models.CircleUser", "DeletedBy")
                         .WithMany()
-                        .HasForeignKey("DeletedById")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .HasForeignKey("DeletedById");
 
                     b.HasOne("Circle.Data.Models.CircleUser", "UpdatedBy")
                         .WithMany()
-                        .HasForeignKey("UpdatedById")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .HasForeignKey("UpdatedById");
 
                     b.Navigation("CreatedBy");
 
@@ -725,36 +696,6 @@ namespace Circle.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("CirclePostCircleUser", b =>
-                {
-                    b.HasOne("Circle.Data.Models.CirclePost", null)
-                        .WithMany()
-                        .HasForeignKey("CirclePostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Circle.Data.Models.CircleUser", null)
-                        .WithMany()
-                        .HasForeignKey("TaggedUsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("CirclePostHashtag", b =>
-                {
-                    b.HasOne("Circle.Data.Models.CirclePost", null)
-                        .WithMany()
-                        .HasForeignKey("CirclePostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Circle.Data.Models.Hashtag", null)
-                        .WithMany()
-                        .HasForeignKey("HashtagsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -810,7 +751,13 @@ namespace Circle.Data.Migrations
                 {
                     b.Navigation("Comments");
 
+                    b.Navigation("Content");
+
+                    b.Navigation("Flags");
+
                     b.Navigation("Reactions");
+
+                    b.Navigation("TaggedUsers");
                 });
 
             modelBuilder.Entity("Circle.Data.Models.Comment", b =>
