@@ -58,7 +58,7 @@
     });
 
     document.querySelector('.form-hashtags-input-field').addEventListener('keyup', (e) => {
-        const enteredValue = e.target.value.trim();
+        let enteredValue = e.target.value.trim();
         if ((e.key === 'Enter' || e.keyCode === 13 || e.keyCode == 32)) {
             const hashValue = '#' + enteredValue;
             if (!currentHashtags.includes(enteredValue)) {
@@ -66,12 +66,13 @@
                 let hashtagSpan = document.createElement('span');
                 hashtagSpan.classList.add('created-hashtag');
                 hashtagSpan.innerText = hashValue;
-                document.querySelector('.form-hashtags-input').appendChild(hashtagSpan);
+                document.querySelector('.form-hashtags-input-field').before(hashtagSpan);
                 document.querySelector('#model-hashtags').value = currentHashtags.join(',');
             }
-                e.target.value = '';
+            enteredValue = '';
+            e.target.value = '';
         }
-        });
+    });
 
     document.querySelector('.form-hashtags-input-field').addEventListener('keydown', (e) => {
         if ((e.keyCode === 8 || e.keyCode === 46)) {
@@ -84,16 +85,16 @@
         }
     });
 
-    //user tags
+    //user tagging
     var users = @Html.Raw(JsonConvert.SerializeObject(users));
     const currentUserTags = [];
 
     document.querySelector('.form-user-tags-input').addEventListener('click', (e) => {
-        document.querySelector('.form-user-tags-input').focus();
+        document.querySelector('.form-user-tags-input-field').focus();
     });
 
     document.querySelector('.form-user-tags-input-field').addEventListener('keyup', (e) => {
-        const enteredUsername = e.target.value.trim();
+        let enteredUsername = e.target.value.trim();
         if ((e.key === 'Enter' || e.keyCode === 13 || e.keyCode == 32)) {
             if (users.includes(enteredUsername)) {
                 const symbol = "@Html.Raw("@")";
@@ -103,10 +104,11 @@
                     let userTagSpan = document.createElement('span');
                     userTagSpan.classList.add('created-user-tag');
                     userTagSpan.innerText = usernameValue;
-                    document.querySelector('.form-user-tags-input').appendChild(userTagSpan);
+                    document.querySelector('.form-user-tags-input-field').before(userTagSpan);
                     document.querySelector('#model-user-tags').value = currentUserTags.join(',');
                 }
-                    e.target.value = '';
+                enteredUsername = '';
+                e.target.value = '';
             }else{
             alert("No such username");
             }

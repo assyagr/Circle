@@ -1,4 +1,5 @@
 ﻿using Circle.Data.Models;
+using Circle.Data.Repositories;
 using Circle.Service.Models;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,8 @@ namespace Circle.Service.Mappings
 			{
 				Content = model.Content?.Select(content => content.ToEntity()).ToList(),
 				Caption = model.Caption,
-				TaggedUsers = model.TaggedUsers?.Select(user => user.ToEntity()).ToList(),
+				//TaggedUsers = model.TaggedUsers?.Select(user => user.UserName == ).ToList(),
+				TaggedUsers = null,
 				Hashtags = model.Hashtags?.Select(hashtag => hashtag.ToEntity()).ToList()
 			};
 		}

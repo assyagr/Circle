@@ -43,38 +43,38 @@ namespace Circle.Web.Controllers
 				photos.Add(new AttachmentServiceModel { CloudUrl = await this.UploadPhoto(photo) });
 			}
 
-			//List<string> taggedUsersUsernames = createPostModel.TaggedUsers?.Split(',').ToList();
-			List<CircleUserServiceModel> taggedUsers = new List<CircleUserServiceModel>();
-
-			foreach (var taggedUser in createPostModel.TaggedUsers) 
+			//doesnt recognize the array properly, puts all the values as one, even though it returns a list
+			List<string> allTaggedUsers = new List<string>();
+			
+			//always one element in list
+			foreach (var taggedUsers in createPostModel.TaggedUsers)
 			{
-				//Doesnt trasnlate Linq so had to do it with foreach
-				CircleUserServiceModel user = null;
-
-				foreach (var u in this.circleUserService.GetAll())
+				if (taggedUsers != null)
 				{
-					if (u.UserName == taggedUser)
-					{
-						user = u;
-						break;
-					}
+					allTaggedUsers = taggedUsers.Split(',').ToList();
 				}
-
-				if (user != null)
-				{
-					taggedUsers.Add(user);
-				}
+				else { allTaggedUsers = null; }
 			}
 
-			//List<string> hashtagLabels = createPostModel.Hashtags?.Split(',').ToList();
+			//doesnt recognize the array properly, puts all the values as one, even though it returns a list
+			List<string> allHashtags = new List<string>();
+
+			//always one element in list
+			foreach (var hashtags in createPostModel.Hashtags)
+			{
+				if (hashtags != null)
+				{
+					allHashtags = hashtags.Split(',').ToList();
+				}
+				else { allHashtags = null; }
+			}
 
 			await this.circlePostService.CreateAsync(new CirclePostServiceModel
 			{
 				Caption = createPostModel.Caption,
-				TaggedUsers = taggedUsers,
-				Hashtags = createPostModel.Hashtags?.Select(hashtag => new HashtagServiceModel { Label = hashtag }).ToList(),
-				//Hashtags = hashtagLabels?.Select(hashtag => new HashtagServiceModel { Label = hashtag }).ToList(),
-				Content = photos
+				Content = photos,
+				TaggedUsers = allTaggedUsers?.Select(username => new CircleUserServiceModel { UserName = username }).ToList(),
+				Hashtags = allHashtags?.Select(hashtag => new HashtagServiceModel { Label = hashtag }).ToList()
 			});
 
 			return Redirect("/");
