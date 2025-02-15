@@ -36,9 +36,15 @@ namespace Circle.Service.Post
 				}).Select(h => h.Result).ToList();
 			}
 
-			foreach (var taggedUser in model.TaggedUsers)
+			circlePost.TaggedUsers = new List<CircleUser>();
+			if (model.TaggedUsers != null)
 			{
-				circlePost.TaggedUsers.Add(await this.circleUserRepository.GetAll().SingleOrDefaultAsync(user => user.Id == taggedUser.Id));
+				foreach (var taggedUser in model.TaggedUsers)
+				{
+					List<CircleUser> allUsers = this.circleUserRepository.GetAll().ToList();
+					CircleUser user = allUsers.Single(user => user.UserName == taggedUser.UserName);
+					circlePost.TaggedUsers.Add(user);
+				}
 			}
 
 			await circlePostRepository.CreateAsync(circlePost);
