@@ -13,9 +13,9 @@ namespace Circle.Service
 	public class UserService : IUserService
 	{
 		private readonly UserRepository userRepository;
-		private readonly FriendshipRepository friendshipRepository;
+		private readonly CircleFriendshipRepository friendshipRepository;
 
-		public UserService(UserRepository userRepository, FriendshipRepository friendshipRepository)
+		public UserService(UserRepository userRepository, CircleFriendshipRepository friendshipRepository)
 		{
 			this.userRepository = userRepository;
 			this.friendshipRepository = friendshipRepository;
