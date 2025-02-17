@@ -23,13 +23,15 @@ namespace Circle.Data.Models
         public string? CircleRole { get; set; } //Admin, User ??
 
 
-        public List<CircleFrienship> AcceptedFrienships { get; set; } //List of friendship "contract ids"
+        public List<CircleFriendship> AcceptedFrienships { get; set; } //List of friendship "contract ids"
 
-        public List<CircleFrienship> PendingRequests { get; set; }  
+        //public List<CircleFriendship> PendingRequests { get; set; }  
 
-        public List<CircleFrienship> Outgoing {  get; set; }
+        public List<CircleFriendship> Outgoing {  get; set; }
 
-
-      
+        public List<CircleFriendship> PendingFriendships { get; set; } = new List<CircleFriendship>(); 
     }
+
+
 }
+

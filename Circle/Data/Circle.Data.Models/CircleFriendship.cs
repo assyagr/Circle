@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Circle.Data.Models
 {
-    public class CircleFrienship : BaseEntity //is metadata needed?
+    public class CircleFriendship : BaseEntity //is metadata needed?
     {
         public CircleUser SenderId { get; set; } //who is sending the request // why is the id a string in base?
         public CircleUser SenderName { get; set; } //Name of sender to attach to the request
@@ -20,9 +20,8 @@ namespace Circle.Data.Models
 
         public DateTime CreatedOn { get; set; } 
         public DateTime AcceptedOn { get; set; }
+        public DateTime RequestedAt { get; set; }
 
-
-
-
+        public DateTime? AcceptedAt { get; set; }
     }
 }

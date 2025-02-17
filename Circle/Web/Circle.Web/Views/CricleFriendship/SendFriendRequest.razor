@@ -1,0 +1,42 @@
+﻿@page "/send-friend-request"
+@using Circle.Service
+@using Microsoft.AspNetCore.Components.Forms
+@inject NavigationManager Navigation
+@inject CircleFriendshipService FriendshipService
+
+<h3>Send Friend Request</h3>
+
+<EditForm Model="@friendRequest" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="addresseeUsername">Addressee Username</label>
+        <InputText id="addresseeUsername" class="form-control" @bind-Value="friendRequest.AddresseeUsername" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Send Friend Request</button>
+</EditForm>
+
+@code {
+    private FriendRequestModel friendRequest = new FriendRequestModel();
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            var senderId = Guid.NewGuid(); // Replace with actual sender ID
+            await FriendshipService.SendFriendRequestAsync(senderId, friendRequest.AddresseeUsername);
+            Navigation.NavigateTo("/");
+        }
+        catch (Exception ex)
+        {
+            // Handle error
+        }
+    }
+
+    public class FriendRequestModel
+    {
+        public string AddresseeUsername { get; set; }
+    }
+}

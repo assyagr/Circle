@@ -1,5 +1,6 @@
 using Circle.Data;
 using Circle.Data.Models;
+using Circle.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,11 @@ builder.Services.AddDefaultIdentity<CircleUser>(options => options.SignIn.Requir
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CircleDbContext>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<CircleFriendshipService>();
+
+
+
 
 var app = builder.Build();
 

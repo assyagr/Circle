@@ -14,7 +14,7 @@ namespace Circle.Data
 
         public DbSet<Reaction> Reactions { get; set; }
 
-        public DbSet<CircleFrienship> FrienshipRequests { get; set; }
+        public DbSet<CircleFriendship> FriendshipRequests { get; set; }
 
 
         public CircleDbContext(DbContextOptions<CircleDbContext> options)
@@ -44,6 +44,12 @@ namespace Circle.Data
                 .WithOne()
                 .HasForeignKey("DeletedById")
                 .OnDelete(DeleteBehavior.Restrict);
+
+
+
+
+
+
         }
     }
 }

@@ -6,65 +6,92 @@ using Circle.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Circle.Data.Repositories
-{                           
-    public class FriendshipRepository : ICircleFriendshipReposiotry
+{
+    public class CircleFriendshipRepository : ICircleFriendshipReposiotry
     {
         protected readonly CircleDbContext _dbContext;
 
-        public FriendshipRepository(CircleDbContext dbContext)
+        public CircleFriendshipRepository(CircleDbContext dbContext)
         {
             this._dbContext = dbContext;
         }
 
-        public async Task<CircleFrienship> AddFriendAsync(Guid senderId, Guid addresseeId)
+        public async Task<CircleFriendship> AddFriendAsync(Guid senderId, string addresseeUsername)
         {
-            if (await AreFriendsAsync(senderId, addresseeId))
-            {
-                throw new InvalidOperationException("Users are already friends.");
-            }
-            //lookup of a single entity when its primary key is known https://learn.microsoft.com/en-us/ef/core/change-tracking/entity-entries#find-and-findasync
-            var sender = await _dbContext.Users.FindAsync(senderId); 
-            var addressee = await _dbContext.Users.FindAsync(addresseeId);
-            string status = "Pending";
+            var sender = await _dbContext.Users.FindAsync(senderId);
+            var addressee = await _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == addresseeUsername);
 
             if (sender == null || addressee == null)
             {
                 throw new InvalidOperationException("Sender or Addressee not found.");
             }
 
-            var friendshipRequest = new CircleFrienship
+            if (await AreFriendsAsync(senderId, Guid.Parse(addressee.Id)))
+            {
+                throw new InvalidOperationException("Users are already friends.");
+            }
+
+            var friendshipRequest = new CircleFriendship
             {
                 SenderId = sender,
                 SenderName = sender,
                 AddresseeId = addressee,
                 AddresseeName = addressee,
-                Status = status,
-                CreatedOn = DateTime.Now
+                Status = "Pending",
+                CreatedOn = DateTime.UtcNow
             };
 
-            await _dbContext.FrienshipRequests.AddAsync(friendshipRequest);
+            await _dbContext.FriendshipRequests.AddAsync(friendshipRequest);
             await _dbContext.SaveChangesAsync();
+
+            sender.Outgoing.Add(friendshipRequest);
+            addressee.PendingFriendships.Add(friendshipRequest);
+
+            await _dbContext.SaveChangesAsync();
+
             return friendshipRequest;
         }
 
-        public async Task RemoveFriendAsync(Guid senderId, Guid addresseId )
+        public async Task RemoveFriendAsync(Guid senderId, Guid addresseeId)
         {
+            var friendship = await _dbContext.FriendshipRequests
+                .FirstOrDefaultAsync(f => f.SenderId.Id == senderId.ToString() && f.AddresseeId.Id == addresseeId.ToString());
 
-            throw new NotImplementedException();    
-
-
+            if (friendship != null)
+            {
+                _dbContext.FriendshipRequests.Remove(friendship);
+                await _dbContext.SaveChangesAsync();
+            }
         }
 
-        public async Task<bool> AreFriendsAsync(Guid SenderId, Guid AddresseId)
+        public async Task<bool> AreFriendsAsync(Guid senderId, Guid addresseeId)
         {
-          //  return await this._dbContext.FrienshipRequests.AnyAsync();
-
-            throw new NotImplementedException();
+            return await _dbContext.FriendshipRequests
+                .AnyAsync(f => f.SenderId.Id == senderId.ToString() && f.AddresseeId.Id == addresseeId.ToString() && f.Status == "Accepted");
         }
 
-        public IQueryable<CircleFrienship> GetAllFriendships()
+        public IQueryable<CircleFriendship> GetAllFriendships()
         {
-            return this._dbContext.FrienshipRequests.AsQueryable();
+            return _dbContext.FriendshipRequests.AsQueryable();
+        }
+
+        public async Task<CircleFriendship> GetFriendshipByIdAsync(Guid friendshipId)
+        {
+            return await _dbContext.FriendshipRequests.FindAsync(friendshipId);
+        }
+
+        public async Task UpdateFriendshipStatusAsync(Guid friendshipId, string status)
+        {
+            var friendship = await GetFriendshipByIdAsync(friendshipId);
+            if (friendship != null)
+            {
+                friendship.Status = status;
+                if (status == "Accepted")
+                {
+                    friendship.AcceptedOn = DateTime.UtcNow;
+                }
+                await _dbContext.SaveChangesAsync();
+            }
         }
     }
 }

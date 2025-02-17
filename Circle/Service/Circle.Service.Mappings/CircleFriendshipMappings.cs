@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 using Circle.Data.Models;
 using Circle.Service.Models;
 
-
 namespace Circle.Service.Mappings
 {
     public class CircleFriendshipMappings
     {
         // Create a new friendship request
-        public CircleFrienship CreateRequest(CircleUser sender, CircleUser addressee)
+        public CircleFriendship CreateRequest(CircleUser sender, CircleUser addressee)
         {
             return new CircleFriendship
             {
@@ -20,7 +19,7 @@ namespace Circle.Service.Mappings
                 SenderName = sender,
                 AddresseeId = addressee,
                 AddresseeName = addressee,
-                RequestedAt = DateTime.UtcNow,
+                CreatedOn = DateTime.UtcNow,
                 Status = "Pending"
             };
         }
