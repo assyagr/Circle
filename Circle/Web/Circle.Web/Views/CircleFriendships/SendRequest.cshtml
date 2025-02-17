@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Send thy friend a request";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="SendRequest" method="post">
+    <div class="form-group">
+        <label for="addresseeUsername">Friend's Username</label>
+        <input type="text" class="form-control" id="addresseeUsername" name="addresseeUsername" />
+    </div>
+    <button type="submit" class="btn btn-primary">Send Request</button>
+</form>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}

@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace Circle.Data.Models
 {
-    public class CircleFrienship : BaseEntity //is metadata needed?
+    public class CircleFriendship : BaseEntity //is metadata needed?
     {
-        public CircleUser SenderId { get; set; } //who is sending the request // why is the id a string in base?
-        public CircleUser SenderName { get; set; } //Name of sender to attach to the request
+        public CircleUser SenderId { get; set; } //Autofill when creating a friendship entity 
+        public CircleUser SenderName { get; set; } //Autofill
        
         
 
-        public CircleUser AddresseeId { get; set; } 
-        public CircleUser AddresseeName { get; set; } //Name of the person receiving the request
+        public CircleUser AddresseeId { get; set; } //Autofill
+        public CircleUser AddresseeName { get; set; } //Used for searching? 
 
         public string Status { get; set; } //Pending, Accepted, Declined, Blocked ect.
 
-        public DateTime CreatedOn { get; set; } 
-        public DateTime AcceptedOn { get; set; }
+        public DateTime CreatedOn { get; set; } = DateTime.Now; //Autofill
+        public DateTime? AcceptedOn { get; set; } //? make it nullable?
 
 
 

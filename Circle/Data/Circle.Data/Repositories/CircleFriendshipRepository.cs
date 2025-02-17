@@ -1,70 +1,44 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Circle.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Circle.Data.Repositories
-{                           
-    public class FriendshipRepository : ICircleFriendshipReposiotry
+{
+    public class CircleFriendshipRepository : ICircleFriendshipReposiotry
     {
-        protected readonly CircleDbContext _dbContext;
+        private readonly CircleDbContext _context;
 
-        public FriendshipRepository(CircleDbContext dbContext)
+        public CircleFriendshipRepository(CircleDbContext context)
         {
-            this._dbContext = dbContext;
+            _context = context;
         }
 
-        public async Task<CircleFrienship> AddFriendAsync(Guid senderId, Guid addresseeId)
+        public async Task CreateRequest(string senderId, string addresseeUsername)
         {
-            if (await AreFriendsAsync(senderId, addresseeId))
-            {
-                throw new InvalidOperationException("Users are already friends.");
-            }
-            //lookup of a single entity when its primary key is known https://learn.microsoft.com/en-us/ef/core/change-tracking/entity-entries#find-and-findasync
-            var sender = await _dbContext.Users.FindAsync(senderId); 
-            var addressee = await _dbContext.Users.FindAsync(addresseeId);
-            string status = "Pending";
+            var sender = await _context.Users.FindAsync(senderId);
+            var addressee = await _context.Users.FirstOrDefaultAsync(u => u.UserName == addresseeUsername);
 
             if (sender == null || addressee == null)
             {
-                throw new InvalidOperationException("Sender or Addressee not found.");
+                throw new ArgumentException("Invalid sender or addressee.");
             }
 
-            var friendshipRequest = new CircleFrienship
+            var friendship = new CircleFriendship
             {
                 SenderId = sender,
-                SenderName = sender,
+                SenderName = sender.UserName, //possible lazy fix is to just aks your friend to give you their id ???
                 AddresseeId = addressee,
-                AddresseeName = addressee,
-                Status = status,
+                AddresseeName = addressee.UserName,
+                Status = "Pending",
                 CreatedOn = DateTime.Now
             };
 
-            await _dbContext.FrienshipRequests.AddAsync(friendshipRequest);
-            await _dbContext.SaveChangesAsync();
-            return friendshipRequest;
-        }
+            sender.Outgoing.Add(friendship);
+            addressee.PendingRequests.Add(friendship);
 
-        public async Task RemoveFriendAsync(Guid senderId, Guid addresseId )
-        {
-
-            throw new NotImplementedException();    
-
-
-        }
-
-        public async Task<bool> AreFriendsAsync(Guid SenderId, Guid AddresseId)
-        {
-          //  return await this._dbContext.FrienshipRequests.AnyAsync();
-
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<CircleFrienship> GetAllFriendships()
-        {
-            return this._dbContext.FrienshipRequests.AsQueryable();
+            _context.CricleFriendships.Add(friendship);
+            await _context.SaveChangesAsync();
         }
     }
 }
