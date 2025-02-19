@@ -10,16 +10,16 @@ namespace Circle.Service.Mappings
 {
 	public static class ReactionMappings
 	{
-		public static Reaction ToEntity(this ReactionServiceModel model)
+		public static Data.Models.Reaction ToEntity(this ReactionServiceModel model)
 		{
-			return new Reaction
+			return new Data.Models.Reaction
 			{
 				Label = model.Label,
 				Emote = model.Emote.ToEntity()
 			};
 		}
 
-		public static ReactionServiceModel ToModel(this Reaction entity)
+		public static ReactionServiceModel ToModel(this Data.Models.Reaction entity)
 		{
 			return new ReactionServiceModel
 			{

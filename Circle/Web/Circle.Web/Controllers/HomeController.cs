@@ -1,6 +1,9 @@
 using System.Diagnostics;
 using AspNetCoreGeneratedDocument;
 using Circle.Models;
+using Circle.Service.Models;
+using Circle.Service.Post;
+using Circle.Service.Reaction;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Circle.Controllers
@@ -8,10 +11,14 @@ namespace Circle.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ICirclePostService _circlePostService;
+        private readonly IReactionService _reactionService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ICirclePostService circlePostService, IReactionService reactionService)
         {
             _logger = logger;
+            _circlePostService = circlePostService;
+            _reactionService = reactionService;
         }
 
         public IActionResult Index()
@@ -20,7 +27,11 @@ namespace Circle.Controllers
             {
                 return View("IndexNotLogged");
             }
-            return View();
+
+            List<CirclePostServiceModel> allPosts = this._circlePostService.GetAll().ToList();
+			this.ViewData["Posts"] = allPosts;
+
+			return View();
         }
 
         public IActionResult Privacy()

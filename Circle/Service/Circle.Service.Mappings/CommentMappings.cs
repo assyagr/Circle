@@ -8,32 +8,69 @@ using System.Threading.Tasks;
 
 namespace Circle.Service.Mappings
 {
+	public enum CommentMappingsContext
+	{
+		Reaction,
+		Parent,
+		Reply,
+		User
+	}
+
 	public static class CommentMappings
 	{
-		public static Comment ToEntity(this CommentServiceModel model)
+		public static Data.Models.Comment ToEntity(this CommentServiceModel model)
 		{
-			return new Comment
+			return new Data.Models.Comment
 			{
-				Content = model.Content,
+				Content = model.Content
 				//Reactions = model.Reactions?.Select(r => r.ToEntity()).ToList(),
 			};
 		}
 
-		public static CommentServiceModel ToModel(this Comment entity)
+		public static CommentServiceModel ToModel(this Data.Models.Comment entity, CommentMappingsContext context)
 		{
 			return new CommentServiceModel
 			{
 				Id = entity.Id,
-				CreatedBy = entity.CreatedBy.ToModel(),
+				CreatedBy = ShouldMapUser(context) ? entity.CreatedBy.ToModel() : null,
 				CreatedOn = entity.CreatedOn,
-				UpdatedBy = entity.UpdatedBy?.ToModel(),
+				UpdatedBy = ShouldMapUser(context) ? entity.UpdatedBy?.ToModel() : null,
 				UpdatedOn = entity.UpdatedOn,
-				DeletedBy = entity.DeletedBy?.ToModel(),
+				DeletedBy = ShouldMapUser(context) ? entity.DeletedBy?.ToModel() : null,
 				Content = entity.Content,
-				Reactions = entity.Reactions?.Select(reaction => reaction.ToModel()).ToList(),
-				Replies = entity.Replies?.Select(reply => reply.ToModel()).ToList(),
+				Parent = ShouldMapParent(context) ? entity.Parent?.ToModel(CommentMappingsContext.Reply) : null,
+				Reactions = ShouldMapReactions(context) ? entity.Reactions?.Select(reaction => reaction.ToModel(UserCommentReactionMappingsContext.Comment)).ToList() : null,
+				Replies = ShouldMapReplies(context) ? entity.Replies?.Select(reply => reply.ToModel(CommentMappingsContext.Parent)).ToList() : null,
 
 			};
+		}
+
+		private static bool ShouldMapReactions(CommentMappingsContext context)
+		{
+			return context == CommentMappingsContext.Parent
+				|| context == CommentMappingsContext.Reply
+				|| context == CommentMappingsContext.User;
+		}
+
+		private static bool ShouldMapReplies(CommentMappingsContext context)
+		{
+			return context == CommentMappingsContext.Parent
+				|| context == CommentMappingsContext.Reaction
+				|| context == CommentMappingsContext.User;
+		}
+
+		private static bool ShouldMapParent(CommentMappingsContext context)
+		{
+			return context == CommentMappingsContext.Reaction
+				|| context == CommentMappingsContext.Reply
+				|| context == CommentMappingsContext.User;
+		}
+
+		private static bool ShouldMapUser(CommentMappingsContext context)
+		{
+			return context == CommentMappingsContext.Reaction
+				|| context == CommentMappingsContext.Parent
+				|| context == CommentMappingsContext.Reply;
 		}
 	}
 }
