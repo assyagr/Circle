@@ -8,15 +8,19 @@ using System.Threading.Tasks;
 
 namespace Circle.Service.Post
 {
-	public interface ICirclePostService
+	public interface ICirclePostService : IGenericService<CirclePost, CirclePostServiceModel>
 	{
-		public interface ICirclePostService : IGenericService<CirclePost, CirclePostServiceModel>
-		{
-		}
 
 		Task<CirclePostServiceModel> CreateAsync(CirclePostServiceModel model);
 
-		Task<CirclePost> InternalCreateAsync(CirclePost model);
+		IQueryable<CirclePostServiceModel> GetAll();
 
+		Task<CirclePostServiceModel> GetByIdAsync(string id);
+
+		Task<CirclePostServiceModel> EditAsync(CirclePostServiceModel model, List<string> allTaggedUsers, List<string> newHashtags);
+
+		Task<CirclePostServiceModel> DeleteAsync(string id);
+
+		Task<CommentServiceModel> CreateCommentOnPost(CommentServiceModel model, string postId, string? parentId = null);
 	}
 }

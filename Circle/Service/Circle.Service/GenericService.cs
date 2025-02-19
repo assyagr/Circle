@@ -11,6 +11,8 @@ namespace Circle.Service
 {
     public abstract class GenericService<TEntity, TModel> : IGenericService<TEntity, TModel> where TModel : BaseEntity
     {
+        //whole thing is just wrong
+
         private readonly IGenericRepository<TModel> _repository;
 
         public GenericService(IGenericRepository<TModel> repository)
@@ -18,27 +20,28 @@ namespace Circle.Service
             this._repository = repository;
         }
 
-        public async Task<TModel> CreateAsync(TModel entity)
+        public async Task<TModel> CreateAsync(TModel model)
         {
-            if (entity == null)
+            if (model == null)
             {
-                throw new ArgumentNullException(nameof(entity));
+                throw new ArgumentNullException(nameof(model));
             }
 
-            await _repository.CreateAsync(entity);
-            return entity;
+            await _repository.CreateAsync(model);
+            return model;
         }
 
-        public async Task<TModel> DeleteAsync(TModel entity)
+        public async Task<TModel> DeleteAsync(string id)
         {
-            await _repository.DeleteAsync(entity);
-            return entity; //Where do it return?
+            //await _repository.DeleteAsync(string id);
+            //return entity; //Where do it return?
+            throw new NotImplementedException();
         }
 
-        public async Task<TModel> EditAsync(TModel entity)
+        public async Task<TModel> EditAsync(TModel model)
         {
-            await _repository.EditAsync(entity);
-            return entity;
+            await _repository.EditAsync(model);
+            return model;
         }
 
         public IQueryable<TModel> GetAll()
@@ -46,9 +49,9 @@ namespace Circle.Service
             return this._repository.GetAll(); 
         }
 
-        public IQueryable<TModel> GetAllNoTracking()
-        {
-            return this._repository.GetAllNoTracking(); 
-        }
+        //public IQueryable<TModel> GetAllNoTracking()
+        //{
+        //    return this._repository.GetAllNoTracking(); 
+        //}
     }
 }

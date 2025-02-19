@@ -22,7 +22,7 @@ namespace Circle.Service.Mappings
 				return new UserPostCommentServiceModel
 				{
 					Id = entity.Id,
-					Comment = ShouldMapComments(context) ? entity.Comment?.ToModel() : null,
+					Comment = ShouldMapComments(context) ? entity.Comment?.ToModel(CommentMappingsContext.Parent) : null,
 					Post = ShouldMapThread(context) ? entity.Post?.ToModel() : null,
 					User = ShouldMapUser(context) ? entity.User?.ToModel() : null
 				};

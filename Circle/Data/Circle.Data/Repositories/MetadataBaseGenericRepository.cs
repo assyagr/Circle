@@ -37,7 +37,7 @@ namespace Circle.Data.Repositories
 		{
 			entity.DeletedOn = DateTime.UtcNow;
 			entity.DeletedBy = await this.GetUser();
-			return await base.DeleteAsync(entity);
+			return await base.EditAsync(entity);
 		}
 
 		private async Task<CircleUser> GetUser()
@@ -45,6 +45,11 @@ namespace Circle.Data.Repositories
 			string? userId = this._httpContextAccessor?.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
 			return await this._dbContext.Users.SingleOrDefaultAsync(user => user.Id == userId);
+		}
+
+		public override IQueryable<TEntity> GetAll()
+		{
+			return this._dbContext.Set<TEntity>().Where(entity => entity.DeletedOn == null).AsQueryable<TEntity>();
 		}
 	}
 }

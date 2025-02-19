@@ -10,15 +10,15 @@ namespace Circle.Service.Mappings
 {
 	public static class HashtagServiceMappings
 	{
-		public static Hashtag ToEntity(this HashtagServiceModel model)
+		public static Data.Models.Hashtag ToEntity(this HashtagServiceModel model)
 		{
-			return new Hashtag
+			return new Data.Models.Hashtag
 			{
 				Label = model.Label
 			};
 		}
 
-		public static HashtagServiceModel ToModel(this Hashtag entity)
+		public static HashtagServiceModel ToModel(this Data.Models.Hashtag entity)
 		{
 			return new HashtagServiceModel
 			{

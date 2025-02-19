@@ -1,0 +1,126 @@
+﻿@using Circle.Service.Models
+@model CirclePostServiceModel
+
+@{
+    var comments = (List<CommentServiceModel>)this.ViewData["Comments"];
+}
+
+<div>
+    <span id="@Model.Id" class="post-id" hidden></span>
+    <main class="page-post-content mt-4">
+        <div class="username-buttons-container">
+            <a href="/Profile/UserProfile?UserName=@Model.CreatedBy.UserName" style="color:#302b36"><b>@Model.CreatedBy.UserName</b></a>
+            @if (User.Identity.Name == Model.CreatedBy.UserName)
+            {
+                <form method="post" asp-controller="Post" asp-action="Edit" asp-route-postId="@Model.Id">
+                    <button type="submit" class="btn btn-secondary btn-small">Edit</button>
+                </form>
+                <form method="post" asp-controller="Post" asp-action="Delete" asp-route-postId="@Model.Id">
+                    <button type="submit" class="btn btn-secondary btn-small">Delete</button>
+                </form>
+            }
+        </div>
+        @if (Model.Caption != null)
+        {
+            <div><h6>@Model.Caption</h6></div>
+        }
+        <div class="visualize-tags-hashtags">
+            @if (Model.Hashtags != null)
+            {
+                @foreach (var hashtag in Model.Hashtags)
+                {
+                    <h7 class="page-post-content-hashtags"><i>#@hashtag.Label</i></h7> @*TODO add a link redirecting to posts with the same hashatag*@
+                }
+            }
+        </div>
+        <div class="visualize-tags-hashtags">
+            @if (Model.TaggedUsers != null)
+            {
+                @foreach (var taggedUser in Model.TaggedUsers)
+                {
+                    <a href="/Profile/UserProfile?UserName=@taggedUser" style="color:grey"><h6 class="page-post-content-tagged-users">@@@taggedUser.UserName</h6></a> @*TODO add a link redirecting to tagged user's profile*@
+                }
+            }
+        </div>
+        <a class="plain-link" href="/Post/Details?postId=@Model.Id">
+            <p class="page-post-content-preview mt-3">
+                @Html.Raw(Model.Content) @*should be the photo/s*@
+            </p>
+        </a>
+    </main>
+    <footer class="page-post-footer d-flex justify-content-start">
+        <div class="page-post-footer-reactions d-flex justify-content-start">
+            <img class="mt-1" src="~/images/reaction.svg" width="20px" height="20px">
+            <div class="ms-2">@Model.Reactions.Count</div>
+        </div>
+        <div class="page-post-footer-comments d-flex justify-content-start ms-4">
+            <span class="comment-icon" onclick="toggleComments()">
+                <img class="mt-1" src="~/images/comment.svg" width="20px" height="20px">
+            </span>
+            <div class="ms-2">@Model.Comments.Count</div>
+        </div>
+        <div class="page-post-footer-share ms-4">
+            <img src="~/images/share.svg" width="20px" height="20px">
+        </div>
+        <div>
+            <div class="page-post-heading-timestamp ms-3 mt-1">@Model.CreatedOn.ToString("dd/MM/yyyy HH:mm")</div>
+        </div>
+    </footer>
+    @*<div class="reactions-container d-none flex-row">
+        <span hidden class="post-id" data-id="@Model.Id"></span>
+        @if (ViewData.ContainsKey("Reactions") && ViewData["Reactions"] != null)
+        {
+            @foreach (var reaction in (List<ReactionServiceModel>)ViewData["Reactions"])
+            {
+                <div class="reaction-emote">
+                    <span hidden class="reaction-id" data-id="@reaction.Id"></span>
+                    <img src="@reaction.Emote.CloudUrl" width="35px" height="35px" />
+                </div>
+            }
+        }
+    </div>*@
+    <div id="all-comments" class="hidden-comments">
+        @if (comments != null)
+        {
+            @foreach (CommentServiceModel comment in comments)
+            {
+                <div>
+                    <a href="/Profile/UserProfile?UserName=@comment.CreatedBy.UserName" style="color:#302b36">@comment.CreatedBy</a>
+                    @comment.CreatedOn
+                    @comment.Content
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<div class="comment-input-field w-50">
+    <br>
+    <form asp-controller="Post" asp-action="Comment" asp-route-postId="@Model.Id" onsubmit="return validateCommentForm()">
+        <input class="form-control comment-input" id="comment-input" name="commentText" rows="1" placeholder="Comment?" />
+        <button type="submit" class="btn btn-secondary btn-small">Comment</button>
+        <span id="error-message" style="color: red; display: none;">Comment cannot be empty!</span>
+	</form>
+</div>
+
+<script>
+    //comments
+    function validateCommentForm() {
+        var commentInput = document.getElementById("comment-input").value.trim();
+        var errorMessage = document.getElementById("error-message");
+
+        if (commentInput === "") {
+            errorMessage.style.display = "block";
+            return false;
+        }
+
+        errorMessage.style.display = "none";
+        return true;
+    }
+
+    function toggleComments() {
+        let comments = document.getElementById("all-comments");
+        comments.classList.toggle("visible");
+    }
+
+</script>

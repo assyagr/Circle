@@ -30,10 +30,12 @@ namespace Circle.Service.Mappings
 				Id = entity.Id,
 				Content = entity.Content?.Select(content => content.ToModel()).ToList(),
 				Caption = entity.Caption,
-				Reactions= entity.Reactions?.Select(reaction => reaction.ToModel()).ToList(),
-				Comments= entity.Comments?.Select(comment => comment.ToModel(UserPostCommentMappingsContext.Post)).ToList(),
+				Reactions = entity.Reactions?.Select(reaction => reaction.ToModel(UserPostReactionMappingsContext.Post)).ToList(),
+				Comments = entity.Comments?.Select(comment => comment.ToModel(UserPostCommentMappingsContext.Post)).ToList(),
 				TaggedUsers = entity.TaggedUsers?.Select(user => user.ToModel()).ToList(),
-				Hashtags = entity.Hashtags?.Select(hashtag => hashtag.ToModel()).ToList()
+				Hashtags = entity.Hashtags?.Select(hashtag => hashtag.ToModel()).ToList(),
+				CreatedBy = entity.CreatedBy.ToModel(),
+				CreatedOn = entity.CreatedOn
 			};
 		}
 	}

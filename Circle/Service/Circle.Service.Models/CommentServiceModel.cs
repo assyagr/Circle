@@ -13,5 +13,7 @@ namespace Circle.Service.Models
 		public List<UserCommentReactionServiceModel> Reactions { get; set; }
 
 		public List<CommentServiceModel> Replies { get; set; }
+
+		public CommentServiceModel? Parent { get; set; }
 	}
 }

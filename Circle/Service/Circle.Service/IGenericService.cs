@@ -10,11 +10,11 @@ namespace Circle.Service
 
         IQueryable<TModel> GetAll();
 
-        IQueryable<TModel> GetAllNoTracking();
+        //IQueryable<TModel> GetAllNoTracking();
 
         Task<TModel> EditAsync(TModel model);
 
-        Task<TModel> DeleteAsync(TModel model);
+        Task<TModel> DeleteAsync(string id);
 
         //matching with BaseGenericRepository
 

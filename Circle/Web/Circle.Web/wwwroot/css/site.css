@@ -34,3 +34,29 @@ body {
     display: flex;
     align-items: center;
 }
+
+.visualize-tags-hashtags {
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-small {
+    font-size: 12px;
+    padding: 3px 8px;
+    height: 30px;
+    width: auto;
+    border-radius: 4px;
+}
+
+.username-buttons-container {
+    display: flex;
+    gap: 10px;
+}
+
+.hidden-comments {
+    display: none;
+}
+
+.visible {
+    display: block;
+}

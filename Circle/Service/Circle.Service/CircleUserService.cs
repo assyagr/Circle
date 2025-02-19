@@ -1,11 +1,14 @@
 using System;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Circle.Data.Migrations;
 using Circle.Data.Models;
 using Circle.Data.Repositories;
 using Circle.Service.Mappings;
 using Circle.Service.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -14,11 +17,17 @@ namespace Circle.Service
 	public class CircleUserService : ICircleUserService
 	{
 		private readonly CircleUserRepository userRepository;
+
+		private readonly IHttpContextAccessor _httpContextAccessor;
+
+		private readonly IUserStore<CircleUser> _userStore;
 		//private readonly FriendshipRepository friendshipRepository;
 
-		public CircleUserService(CircleUserRepository userRepository)
+		public CircleUserService(CircleUserRepository userRepository, IHttpContextAccessor httpContextAccessor, IUserStore<CircleUser> userStore)
 		{
 			this.userRepository = userRepository;
+			this._httpContextAccessor = httpContextAccessor;
+			this._userStore = userStore;
 			//this.friendshipRepository = friendshipRepository;
 		}
 
@@ -83,6 +92,17 @@ namespace Circle.Service
 		{
 			throw new NotImplementedException();
 			//await this.friendshipRepository.RemoveFriendAsync(userId, friendId);
+		}
+		public async Task<CircleUser> GetCurrentUserAsync()
+		{
+			string? userId = this._httpContextAccessor?.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+			return await this._userStore.FindByIdAsync(userId, CancellationToken.None);
+		}
+
+		public async Task<CircleUser> GetUserByUserName(string username)
+		{
+			return await this._userStore.FindByNameAsync(username.ToUpper(), CancellationToken.None);
 		}
 	}
 }
