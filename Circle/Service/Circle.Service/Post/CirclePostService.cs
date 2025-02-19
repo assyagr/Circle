@@ -120,7 +120,7 @@ namespace Circle.Service.Post
 				{
 					Data.Models.Hashtag newHashtag = await hashtagRepository.CreateAsync(new Data.Models.Hashtag { Label = hashtag });
 					editCirclePost.Hashtags.Add(newHashtag);
-					
+
 				}
 			}
 
@@ -128,6 +128,7 @@ namespace Circle.Service.Post
 			{
 				if (!newHashtags.Contains(hashtag.Label))
 				{
+					//editCirclePost.Hashtags.Remove(hashtag);
 					await hashtagRepository.DeleteAsync(hashtag);
 				}
 			}
@@ -167,7 +168,6 @@ namespace Circle.Service.Post
 			});
 
 			await this.circlePostRepository.EditAsync(commentPost);
-			//throw new NotImplementedException();
 			return entity.ToModel(CommentMappingsContext.Reaction);
 		}
 

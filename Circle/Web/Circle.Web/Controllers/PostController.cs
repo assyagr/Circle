@@ -46,6 +46,7 @@ namespace Circle.Web.Controllers
 		[HttpPost]
 		public async Task<IActionResult> CreateConfirm(CreatePostModel createPostModel)
 		{
+			// TODO: trqbwa da ne mozhe da se kachwa bez snimka
 			List<AttachmentServiceModel> photos = new List<AttachmentServiceModel>();
 
 			foreach (var photo in createPostModel.Content)
@@ -53,38 +54,12 @@ namespace Circle.Web.Controllers
 				photos.Add(new AttachmentServiceModel { CloudUrl = await this.UploadPhoto(photo) });
 			}
 
-			//doesnt recognize the array properly, puts all the values as one, even though it returns a list
-			List<string> allTaggedUsers = new List<string>();
-			
-			//always one element in list
-			foreach (var taggedUsers in createPostModel.TaggedUsers)
-			{
-				if (taggedUsers != null)
-				{
-					allTaggedUsers = taggedUsers.Split(',').ToList();
-				}
-				else { allTaggedUsers = null; }
-			}
-
-			//doesnt recognize the array properly, puts all the values as one, even though it returns a list
-			List<string> allHashtags = new List<string>();
-
-			//always one element in list
-			foreach (var hashtags in createPostModel.Hashtags)
-			{
-				if (hashtags != null)
-				{
-					allHashtags = hashtags.Split(',').ToList();
-				}
-				else { allHashtags = null; }
-			}
-
 			await this.circlePostService.CreateAsync(new CirclePostServiceModel
 			{
 				Caption = createPostModel.Caption,
 				Content = photos,
-				TaggedUsers = allTaggedUsers?.Select(username => new CircleUserServiceModel { UserName = username }).ToList(),
-				Hashtags = allHashtags?.Select(hashtag => new HashtagServiceModel { Label = hashtag }).ToList()
+				TaggedUsers = createPostModel.TaggedUsers?.Select(username => new CircleUserServiceModel { UserName = username }).ToList(),
+				Hashtags = createPostModel.Hashtags?.Select(hashtag => new HashtagServiceModel { Label = hashtag }).ToList()
 			});
 
 			return Redirect("/");
@@ -138,37 +113,8 @@ namespace Circle.Web.Controllers
 		{
 			CirclePostServiceModel postModel = await circlePostService.GetByIdAsync(editPostModel.Id);
 
-			//doesnt recognize the array properly, puts all the values as one, even though it returns a list
-
-
-			//1.srawnqwam ws tagowe ot postModel w editpostmodel
-			//2.ako ima nqkoi koito go nqma w editpostmodel trqbwa da go mahna ot entityto
-			//3.ako ima nqkoi koito go ima w editpostmodel, no ne w entity trqbwa da se dobawi w entity
-			//4.ako ima hashtag w editpostmodel koito ne sushtestwuwa w bazata
-
-			List<string> allTaggedUsers = new List<string>();
-			//always one element in list
-			foreach (var taggedUsers in editPostModel.TaggedUsers)
-			{
-				if (taggedUsers != null)
-				{
-					allTaggedUsers = taggedUsers.Split(',').ToList();
-				}
-			}
-
-			//doesnt recognize the array properly, puts all the values as one, even though it returns a list
-			List<string> allHashtags = new List<string>();
-
-			//always one element in list
-			foreach (var hashtags in editPostModel.Hashtags)
-			{
-				if (hashtags != null)
-				{
-					allHashtags = hashtags.Split(',').ToList();
-				}
-			}
-
-			await this.circlePostService.EditAsync(postModel, allTaggedUsers, allHashtags);
+			postModel.Caption = editPostModel.Caption;
+			await this.circlePostService.EditAsync(postModel, editPostModel.TaggedUsers, editPostModel.Hashtags);
 
 			return Redirect("/");
 		}
@@ -188,7 +134,7 @@ namespace Circle.Web.Controllers
 				Content = commentText
 			}, postId, parentId);
 
-			return Ok(result);
+			return Redirect("/");
 		}
 	}
 }

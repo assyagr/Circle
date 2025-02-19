@@ -19,10 +19,10 @@
                     <form method="post" asp-controller="Post" asp-action="Delete" asp-route-postId="@post.Id">
                         <button type="submit" class="btn btn-secondary btn-small">Delete</button>
                     </form>
-                    @*working on edit*@
                 }
             </div>
-                @if(post.Caption != null){
+                @if(post.Caption != null)
+                {
                     <div><h6>@post.Caption</h6></div>
                 }
             <div class="visualize-tags-hashtags">
@@ -30,7 +30,10 @@
                 {
                     @foreach (var hashtag in post.Hashtags)
                     {
-                        <h7 class="page-post-content-hashtags"><i>#@hashtag.Label</i></h7> @*TODO MAYBE add a link redirecting to posts with the same hashatag*@
+                        if (hashtag.DeletedBy == null)
+                        {
+                            <h7 class="page-post-content-hashtags"><i>#@hashtag.Label</i></h7> @*TODO MAYBE add a link redirecting to posts with the same hashatag*@
+                        }
                     }
                 }
             </div>

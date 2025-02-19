@@ -29,7 +29,10 @@
             {
                 @foreach (var hashtag in Model.Hashtags)
                 {
-                    <h7 class="page-post-content-hashtags"><i>#@hashtag.Label</i></h7> @*TODO add a link redirecting to posts with the same hashatag*@
+                    if (hashtag.DeletedBy == null)
+                    {
+                        <h7 class="page-post-content-hashtags"><i>#@hashtag.Label</i></h7>
+                    }
                 }
             }
         </div>
@@ -66,19 +69,6 @@
             <div class="page-post-heading-timestamp ms-3 mt-1">@Model.CreatedOn.ToString("dd/MM/yyyy HH:mm")</div>
         </div>
     </footer>
-    @*<div class="reactions-container d-none flex-row">
-        <span hidden class="post-id" data-id="@Model.Id"></span>
-        @if (ViewData.ContainsKey("Reactions") && ViewData["Reactions"] != null)
-        {
-            @foreach (var reaction in (List<ReactionServiceModel>)ViewData["Reactions"])
-            {
-                <div class="reaction-emote">
-                    <span hidden class="reaction-id" data-id="@reaction.Id"></span>
-                    <img src="@reaction.Emote.CloudUrl" width="35px" height="35px" />
-                </div>
-            }
-        }
-    </div>*@
     <div id="all-comments" class="hidden-comments">
         @if (comments != null)
         {

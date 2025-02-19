@@ -29,9 +29,7 @@ namespace Circle.Controllers
             }
 
             List<CirclePostServiceModel> allPosts = this._circlePostService.GetAll().ToList();
-			//List<ReactionServiceModel> allReactions = this._reactionService.GetAll().ToList();
 			this.ViewData["Posts"] = allPosts;
-			//this.ViewData["Reactions"] = allReactions;
 
 			return View();
         }
