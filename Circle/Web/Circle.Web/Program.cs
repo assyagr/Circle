@@ -39,6 +39,11 @@ builder.Services.AddDefaultIdentity<CircleUser>(options => options.SignIn.Requir
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CircleDbContext>();
 
+builder.Services.Configure<IdentityOptions>(options =>
+{
+	options.User.RequireUniqueEmail = true;
+});
+
 //builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllersWithViews();
