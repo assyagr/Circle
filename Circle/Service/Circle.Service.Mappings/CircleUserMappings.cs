@@ -17,6 +17,11 @@ namespace Circle.Service.Mappings
 
 		public static CircleUserServiceModel ToModel(this CircleUser entity)
 		{
+			if(entity == null)
+			{
+				return new CircleUserServiceModel();
+			}
+
 			return new CircleUserServiceModel
 			{
 				Email = entity.Email,

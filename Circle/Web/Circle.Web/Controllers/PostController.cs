@@ -12,6 +12,7 @@ using Circle.Service.Hashtag;
 using Circle.Data.Models;
 using Circle.Service.Comment;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 
 namespace Circle.Web.Controllers
 {
@@ -27,12 +28,13 @@ namespace Circle.Web.Controllers
 
 		private readonly ICommentService commentService;
 
-		public PostController(ICirclePostService circlePostService, ICircleUserService circleUserService, ICloudinaryService cloudinaryService, IHashtagService hashtagService)
+		public PostController(ICirclePostService circlePostService, ICircleUserService circleUserService, ICloudinaryService cloudinaryService, IHashtagService hashtagService, ICommentService commentService)
 		{
 			this.circlePostService = circlePostService;
 			this.circleUserService = circleUserService;
 			this.cloudinaryService = cloudinaryService;
 			this.hashtagService = hashtagService;
+			this.commentService = commentService;
 		}
 
 		[HttpGet]
@@ -68,7 +70,8 @@ namespace Circle.Web.Controllers
 		public async Task<IActionResult> Details(string postId)
 		{
 			CirclePostServiceModel post = await this.circlePostService.GetByIdAsync(postId);
-			List<CommentServiceModel> comments = post.Comments.Select(upc => upc.Comment).ToList();
+			List<CommentServiceModel> comments = (await commentService.GetAllNoParentByPostId(postId)).ToList();
+			//List<CommentServiceModel> fullComments = commentService.GetAll().Where(c => comments.Contains(c.Id)).ToList();
 			this.ViewData["Comments"] = comments;
 
 			if (post == null)
@@ -131,8 +134,9 @@ namespace Circle.Web.Controllers
 		{
 			var result = await this.circlePostService.CreateCommentOnPost(new CommentServiceModel
 			{
-				Content = commentText
-			}, postId, parentId);
+				Content = commentText,
+				Parent = new CommentServiceModel { Id = parentId }
+			}, postId);
 
 			return Redirect("/");
 		}

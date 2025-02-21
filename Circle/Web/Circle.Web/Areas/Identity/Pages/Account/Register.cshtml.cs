@@ -86,7 +86,7 @@ namespace Circle.Web.Areas.Identity.Pages.Account
 			List<string> userEmails = _circlePostRepository.GetAll().Select(user => user.Email).ToList();
 			if (userEmails.Contains(Input.Email))
 			{
-				//ADD PROPER MESSAGE
+				//ADD PROPER VALIDATION AND MESSAGE
 				throw new InvalidOperationException("The email is already in use.");
 			}else if (ModelState.IsValid)
 			{

@@ -17,5 +17,16 @@ namespace Circle.Web.Controllers
 			this.circlePostService = circlePostService;
 			this.commentService = commentService;
 		}
+
+		public async Task<IActionResult> Reply(string parentCommentId, string replyText, string postId)
+		{
+			var result = await this.commentService.CreateReplyOnComment(new CommentServiceModel
+			{
+				Content = replyText,
+				Parent = new CommentServiceModel { Id = parentCommentId}
+			}, postId);
+
+			return Redirect("/");
+		}
 	}
 }

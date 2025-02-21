@@ -34,18 +34,20 @@ namespace Circle.Service.Post
 		{
 			CirclePost circlePost = model.ToEntity();
 
-			if (circlePost.Hashtags != null)
+			if (!circlePost.Hashtags.Select(h => h.Label).Contains(""))
 			{
 				circlePost.Hashtags = circlePost.Hashtags.Select(async hashtag =>
 				{
-					return (await this.hashtagRepository.CreateAsync(hashtag));
+						return (await this.hashtagRepository.CreateAsync(hashtag));
 				}).Select(h => h.Result).ToList();
 			}
+			else { circlePost.Hashtags = null; }
 
 			circlePost.TaggedUsers = new List<CircleUser>();
-			if (model.TaggedUsers != null)
+
+			foreach (var taggedUser in model.TaggedUsers)
 			{
-				foreach (var taggedUser in model.TaggedUsers)
+				if (taggedUser.UserName != "")
 				{
 					List<CircleUser> allUsers = this.circleUserRepository.GetAll().ToList();
 					CircleUser user = allUsers.Single(user => user.UserName == taggedUser.UserName);
@@ -53,6 +55,10 @@ namespace Circle.Service.Post
 				}
 			}
 
+			if(circlePost.TaggedUsers.Count == 0)
+			{
+				circlePost.TaggedUsers = null;
+			}
 			await circlePostRepository.CreateAsync(circlePost);
 
 			return circlePost.ToModel();
@@ -78,14 +84,18 @@ namespace Circle.Service.Post
 		{
 			return circlePostRepository.GetAll()
 				.Include(p => p.Content)
-				//.Include(p => p.Caption)
 				.Include(p => p.Hashtags)
 				.Include(p => p.TaggedUsers)
 				.Include(p => p.Reactions)
 				.Include(p => p.Comments)
 					.ThenInclude(upc => upc.Comment)
+				.Include(p => p.Comments)
+					.ThenInclude(upc => upc.Comment)
+						.ThenInclude(c => c.Parent)
+				.Include(p => p.Comments)
+					.ThenInclude(upc => upc.Comment)
+						.ThenInclude(c => c.CreatedBy)
 				.Include(p => p.CreatedBy)
-				//.Include(p => p.CreatedOn)
 				.Include(p => p.UpdatedBy)
 				.Include(p => p.DeletedBy);
 		}
