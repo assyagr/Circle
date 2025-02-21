@@ -1,0 +1,48 @@
+﻿@using Circle.Service.Models
+@model CommentServiceModel
+
+<div class="comment-reply-visualization">
+
+    <a href="/Profile/UserProfile?UserName=@Model.CreatedBy.UserName" style="color:#302b36">@Model.CreatedBy</a>
+    [@Model.CreatedOn]
+    @Model.Content 
+    <br>
+
+    <span class="reply-text-icon" onclick="toggleReplyInput(this)">[Reply]</span>
+
+    @if(Model.Replies.Count != 0)
+    {
+        <span class="replies-text-icon" onclick="toggleReplies(this)">[View Replies]</span>
+    }
+
+    <div class="reply-to-comment hidden-reply-input">
+        <form method="post" asp-controller="Comment" asp-action="Reply" asp-route-parentCommentId="@Model.Id">
+            <input type="text" class="reply-input-textbox" name="replyText" />
+            <input type="hidden" name="postId" value="@ViewData["PostId"]" />
+            <button type="submit" class="btn btn-secondary btn-small">Reply</button>
+        </form>
+    </div>
+    <div class="direct-replies hidden-replies">
+        @if (Model.Replies != null)
+        {
+            @foreach (var reply in Model.Replies)
+            {
+                @Html.Partial("_PartialComment", reply)
+            }
+        }
+    </div>
+</div>
+
+<script>
+    //replies
+    function toggleReplies(element) {
+        let replies = element.closest(".comment-reply-visualization").querySelector(".direct-replies");
+        replies.classList.toggle("visible-replies");
+    }
+
+    //reply input
+    function toggleReplyInput(element){
+        let replyInput = element.closest(".comment-reply-visualization").querySelector(".reply-to-comment");
+        replyInput.classList.toggle("visible-reply-input");
+    }
+</script>

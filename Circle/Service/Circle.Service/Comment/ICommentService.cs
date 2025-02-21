@@ -10,5 +10,8 @@ namespace Circle.Service.Comment
 {
 	public interface ICommentService : IGenericService<Data.Models.Comment, CommentServiceModel>
 	{
+		Task<CommentServiceModel> CreateReplyOnComment(CommentServiceModel model, string postId);
+
+		Task<IQueryable<CommentServiceModel>> GetAllNoParentByPostId(string postId);
 	}
 }

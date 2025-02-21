@@ -10,9 +10,9 @@ namespace Circle.Service.Models
 	{
 		public string Content { get; set; }
 
-		public List<UserCommentReactionServiceModel> Reactions { get; set; }
+		public List<UserCommentReactionServiceModel>? Reactions { get; set; }
 
-		public List<CommentServiceModel> Replies { get; set; }
+		public List<CommentServiceModel>? Replies { get; set; }
 
 		public CommentServiceModel? Parent { get; set; }
 	}

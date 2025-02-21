@@ -16,9 +16,10 @@
         <input asp-for="@Model.Caption" class="form-control" aria-required="true"/>
         <label asp-for="@Model.Caption" class="form-label">Caption</label>
     </div>
-    <div>
+    <div id="posted-photos">
         <label asp-for="@Model.Content" class="form-label">Photos</label>
         <input asp-for="@Model.Content" class="form-control for-control-lg" aria-required="true" type="file" multiple>
+        <span id="error-message" style="color: red; display: none;">Cannot post without at least one photo!</span>
     </div>
     <br>
     <div class="mb-3">
@@ -49,7 +50,9 @@
     const currentHashtags = [];
 
     document.querySelector('#create-post-form button').addEventListener('click', (e) => {
-        document.querySelector('#create-post-form').submit();
+        if (validateContentForm()) {
+            document.querySelector('#create-post-form').submit();
+        }
     });
 
     //hashtags
@@ -125,4 +128,19 @@
             }
         }
     });
+
+    //content
+    function validateContentForm()
+    {
+        var contentInput = document.querySelector('input[type="file"]');
+        var errorMessage = document.getElementById("error-message");
+
+        if (!contentInput.files || contentInput.files.length === 0) {
+            errorMessage.style.display = "block";
+            return false;
+        }
+
+        errorMessage.style.display = "none";
+        return true;
+    }
 </script>

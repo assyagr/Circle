@@ -57,6 +57,83 @@ body {
     display: none;
 }
 
-.visible {
+.visible-comments {
     display: block;
+}
+
+.reply-replies {
+    display: flex;
+    gap: 10px;
+}
+
+.comment-reply-visualization {
+    border-left: 2px solid #ccc; 
+    padding-left: 10px; 
+    margin-top: 10px;
+}
+
+.hidden-replies {
+    display: none;
+}
+
+.visible-replies {
+    display: block;
+}
+
+.visible-reply-input{
+    display: block !important;
+}
+
+.hidden-reply-input {
+    display: none;
+}
+
+/* comment button stuff */
+.comment-input-field {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    max-width: 250px;
+}
+
+.oval-comment-input {
+    width: 100%;
+    height: 45px;
+    border-radius: 50px;
+    border: 2px solid #ccc;
+    padding: 10px 20px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.hidden-comment-button {
+    display: none;
+}
+
+#add-comment-button {
+    position: absolute;
+    right: 15%;
+    top: 57%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #220b36;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+}
+
+/* reply to comment styling */
+.reply-input-textbox {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    max-width: 250px;
 }
