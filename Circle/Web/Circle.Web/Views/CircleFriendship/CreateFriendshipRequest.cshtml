@@ -1,0 +1,10 @@
+﻿@page
+@model Circle.Web.Pages.CircleFriendship.CreateFriendshipRequestModel
+
+<form method="post">
+    <p>
+        <label>Id of who you want to send a request to</label>
+        <input type="text" asp-for="SentToId" />
+    </p>
+    <button type="submit">Send Request</button>
+</form>

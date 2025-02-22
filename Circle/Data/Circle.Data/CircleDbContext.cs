@@ -17,6 +17,8 @@ namespace Circle.Data
 
         public DbSet<Hashtag> Hashtags { get; set; }
 
+		public DbSet<CircleFriendship> Friendships { get; set; }	
+
         public CircleDbContext(DbContextOptions<CircleDbContext> options)
             : base(options)
         {
@@ -37,7 +39,21 @@ namespace Circle.Data
 				.HasMany(cp => cp.Content)
 				.WithMany();
 
-			modelBuilder.ConfigureMetadataEntity<Hashtag>();
+
+            //modelBuilder.Entity<CircleFriendship>()
+            //    .HasOne(cf => cf.CreatedById)
+            //    .WithOne()
+            //    .HasForeignKey<CircleFriendship>(cf => cf.CreatedById);
+
+            //modelBuilder.Entity<CircleFriendship>()
+            //    .HasOne(cf => cf.SentToId)
+            //    .WithOne()
+            //    .HasForeignKey<CircleFriendship>(cf => cf.SentToId);
+
+
+
+
+            modelBuilder.ConfigureMetadataEntity<Hashtag>();
 
 			base.OnModelCreating(modelBuilder);
 		}

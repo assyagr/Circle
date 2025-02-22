@@ -35,6 +35,10 @@ builder.Services.AddTransient<IReactionService, ReactionService>();
 builder.Services.AddTransient<ICommentService, CommentService>();
 builder.Services.AddTransient<IHashtagService, HashtagService>();
 
+builder.Services.AddScoped<CircleFriendshipService>();
+builder.Services.AddScoped<CircleFriendshipRepository>(); //S: no intefaces for now cuz im trying :(
+
+
 builder.Services.AddDefaultIdentity<CircleUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CircleDbContext>();
