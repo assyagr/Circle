@@ -30,6 +30,7 @@
                 <input class="form-user-tags-input-field" maxlength="20" />
             </div>
         </div>
+        <span id="error-no-such-username" style="color: red; display: none;">No such username!</span>
     </div>
     <div class="mb-3">
         <input id="model-hashtags" type="hidden" asp-for="@Model.Hashtags" hidden />
@@ -96,10 +97,12 @@
         document.querySelector('.form-user-tags-input-field').focus();
     });
 
+    var errorNoSuchUsername = document.getElementById("error-no-such-username");
     document.querySelector('.form-user-tags-input-field').addEventListener('keyup', (e) => {
         let enteredUsername = e.target.value.trim();
         if ((e.key === 'Enter' || e.keyCode === 13 || e.keyCode == 32)) {
             if (users.includes(enteredUsername)) {
+                errorNoSuchUsername.style.display = "none";
                 const symbol = "@Html.Raw("@")";
                 const usernameValue = symbol + enteredUsername;
                 if (!currentUserTags.includes(enteredUsername)) {
@@ -113,7 +116,7 @@
                 enteredUsername = '';
                 e.target.value = '';
             }else{
-            alert("No such username");
+                errorNoSuchUsername.style.display = "block";
             }
         }
     });

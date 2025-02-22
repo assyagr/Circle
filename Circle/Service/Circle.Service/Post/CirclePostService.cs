@@ -181,6 +181,17 @@ namespace Circle.Service.Post
 			return entity.ToModel(CommentMappingsContext.Reaction);
 		}
 
+		public List<CirclePostServiceModel> Search(string searchString)
+		{
+			List<CirclePost> allPosts = InternalGetAll().ToList();
+			List<CirclePost> foundPostEntities = allPosts?.Where(p => 
+				p.Caption.Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
+				p.Hashtags.Any(h => h.Label.Contains(searchString, StringComparison.OrdinalIgnoreCase)))
+				.ToList();
+			List<CirclePostServiceModel> foundPostModels = foundPostEntities?.Select(p => p.ToModel()).ToList();
+			return foundPostModels;
+		}
+
 		public Task<CirclePostServiceModel> EditAsync(CirclePostServiceModel model)
 		{
 			throw new NotImplementedException();

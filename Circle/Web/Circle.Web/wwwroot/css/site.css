@@ -63,7 +63,7 @@ body {
 
 .reply-replies {
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
 
 .comment-reply-visualization {
@@ -110,10 +110,6 @@ body {
     margin-top: 10px;
 }
 
-.hidden-comment-button {
-    display: none;
-}
-
 #add-comment-button {
     position: absolute;
     right: 15%;
@@ -128,12 +124,46 @@ body {
     text-decoration: none;
 }
 
+.hidden-comment-button {
+    display: none;
+}
+
 /* reply to comment styling */
-.reply-input-textbox {
+.reply-input-field {
     position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    max-width: 250px;
+    max-width: 50px;
+}
+
+.oval-reply-input {
+    width: 13%;
+    height: 40px;
+    border-radius: 50px;
+    border: 2px solid #ccc;
+    padding: 10px 20px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+/*search bar */
+#search{
+    margin-left: 10%;
+    width: 70%;
+    height: 5vh;
+}
+
+.search-bar-input {
+    height: 40px;
+    border-radius: 50px;
+    border: 2px solid #616161;
+    padding: 10px 20px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    margin-top: 10px;
 }

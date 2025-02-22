@@ -48,7 +48,6 @@ namespace Circle.Web.Controllers
 		[HttpPost]
 		public async Task<IActionResult> CreateConfirm(CreatePostModel createPostModel)
 		{
-			// TODO: trqbwa da ne mozhe da se kachwa bez snimka
 			List<AttachmentServiceModel> photos = new List<AttachmentServiceModel>();
 
 			foreach (var photo in createPostModel.Content)
@@ -71,7 +70,6 @@ namespace Circle.Web.Controllers
 		{
 			CirclePostServiceModel post = await this.circlePostService.GetByIdAsync(postId);
 			List<CommentServiceModel> comments = (await commentService.GetAllNoParentByPostId(postId)).ToList();
-			//List<CommentServiceModel> fullComments = commentService.GetAll().Where(c => comments.Contains(c.Id)).ToList();
 			this.ViewData["Comments"] = comments;
 
 			if (post == null)
@@ -119,7 +117,7 @@ namespace Circle.Web.Controllers
 			postModel.Caption = editPostModel.Caption;
 			await this.circlePostService.EditAsync(postModel, editPostModel.TaggedUsers, editPostModel.Hashtags);
 
-			return Redirect("/");
+			return Redirect($"/Post/Details?postId={editPostModel.Id}");
 		}
 
 		[HttpPost]
@@ -138,7 +136,22 @@ namespace Circle.Web.Controllers
 				Parent = new CommentServiceModel { Id = parentId }
 			}, postId);
 
-			return Redirect("/");
+			return Redirect($"/Post/Details?postId={postId}");
+		}
+
+		public IActionResult Search(string searchString)
+		{
+			if(searchString == "" || searchString == null)
+			{
+				return Redirect("/");
+			}
+
+			
+			List<CirclePostServiceModel> foundPosts = circlePostService.Search(searchString);
+			this.ViewData["FoundPosts"] = foundPosts;
+			this.ViewData["SearchText"] = searchString;
+
+			return View();
 		}
 	}
 }
