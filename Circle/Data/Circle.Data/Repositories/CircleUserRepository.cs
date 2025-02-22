@@ -1,44 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Circle.Data.Migrations;
+﻿using System.Threading.Tasks;
 using Circle.Data.Models;
-using Circle.Service.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace Circle.Data.Repositories
 {
-
-
-
-    public class CircleUserRepository : ICircleUserReposiotry //I should just inherit the base repo but
-        // i get error that i dont have Circle.Data.Model.Cricle conversion to Cricle.Data.Model.BaseE
+    public class CircleUserRepository
     {
-        protected readonly CircleDbContext _dbContext;
+        private readonly CircleDbContext dbContext;
 
-        public CircleUserRepository(CircleDbContext dbContext) //inject db 
+        public CircleUserRepository(CircleDbContext dbContext)
         {
-            this._dbContext = dbContext;
+            this.dbContext = dbContext;
         }
 
-        public async Task<CircleUser> CreateAsync(CircleUser user)
+        public async Task<CircleUser> GetByIdAsync(string id)
         {
-            await this._dbContext.AddAsync(user);
-            await this._dbContext.SaveChangesAsync(); 
-            return user;
+
+            return await dbContext.CircleUsers.FindAsync(id);
+
         }
 
-		public async Task<CircleUser> DeleteAsync(CircleUser user)
-		{
-			throw new NotImplementedException();
-		}
+        public async Task UpdateAsync(CircleUser user)
+        {
+            dbContext.CircleUsers.Update(user);
+            await dbContext.SaveChangesAsync();
+        }
+    }
+}
+public class CircleUser
+{
+    public string Id { get; set; }
+    
 
-		public IQueryable<CircleUser> GetAll()
-		{
-            return this._dbContext.Users;
-		}
-	}
+  
+    public ICollection<CircleUser> Friends { get; set; } = new HashSet<CircleUser>();
 }
