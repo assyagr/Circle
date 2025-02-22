@@ -20,13 +20,16 @@ namespace Circle.Web.Controllers
 
 		public async Task<IActionResult> Reply(string parentCommentId, string replyText, string postId)
 		{
-			var result = await this.commentService.CreateReplyOnComment(new CommentServiceModel
+			if(replyText != "" && replyText != null)
 			{
-				Content = replyText,
-				Parent = new CommentServiceModel { Id = parentCommentId}
-			}, postId);
-
-			return Redirect("/");
+				var result = await this.commentService.CreateReplyOnComment(new CommentServiceModel
+				{
+					Content = replyText,
+					Parent = new CommentServiceModel { Id = parentCommentId}
+				}, postId);
+			}
+			
+			return Redirect($"/Post/Details?postId={postId}");
 		}
 	}
 }

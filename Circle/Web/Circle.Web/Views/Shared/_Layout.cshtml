@@ -20,16 +20,19 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        @*<li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>*@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="Create">Create Post</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="Create">
+                                    <img class="mt-1" src="~/images/post.svg" width="30px" height="30px">
+                                </a>
+                            </li>
+                            <li id="search">
+                                <form asp-area="" asp-controller="Post" asp-action="Search">
+                                    <div class="form-group w-100 d-flex justify-content-center">
+                                        <input class="form-control search-bar-input" name="searchString" placeholder="Search?">
+									</div>
+								</form>
                             </li>
                         }
                     </ul>

@@ -8,16 +8,18 @@
     @Model.Content 
     <br>
 
-    <span class="reply-text-icon" onclick="toggleReplyInput(this)">[Reply]</span>
+    <span class="reply-text-icon" onclick="toggleReplyInput(this)">
+        <img class="mt-1" src="~/images/comment.svg" width="15px" height="15px">
+    </span>
 
     @if(Model.Replies.Count != 0)
     {
-        <span class="replies-text-icon" onclick="toggleReplies(this)">[View Replies]</span>
+        <span class="replies-text-icon" onclick="toggleReplies(this)">...</span>
     }
 
     <div class="reply-to-comment hidden-reply-input">
-        <form method="post" asp-controller="Comment" asp-action="Reply" asp-route-parentCommentId="@Model.Id">
-            <input type="text" class="reply-input-textbox" name="replyText" />
+		<form method="post" asp-controller="Comment" asp-action="Reply" asp-route-parentCommentId="@Model.Id" @*onsubmit="return validateReplyForm()"*@>
+            <input type="text" class="oval-reply-input" id="reply-input" name="replyText" placeholder="Reply?" />
             <input type="hidden" name="postId" value="@ViewData["PostId"]" />
             <button type="submit" class="btn btn-secondary btn-small">Reply</button>
         </form>
@@ -31,6 +33,7 @@
             }
         }
     </div>
+    <span id="error-message-reply" style="color: red; display: none;">Reply cannot be empty!</span>
 </div>
 
 <script>
@@ -45,4 +48,20 @@
         let replyInput = element.closest(".comment-reply-visualization").querySelector(".reply-to-comment");
         replyInput.classList.toggle("visible-reply-input");
     }
+
+    function validateReplyForm()
+    {
+        var replyInput = document.getElementById("reply-input").value.trim();
+        var errorMessage = document.getElementById("error-message-reply");
+
+        if (replyInput == "")
+        {
+            errorMessage.style.display = "block";
+            return false;
+        }
+
+        errorMessage.style.display = "none";
+        return true;
+    }
+
 </script>

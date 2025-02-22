@@ -1,0 +1,85 @@
+﻿@using Circle.Service.Models
+@model CirclePostServiceModel
+
+@if ((ViewData["FoundPosts"] as List<CirclePostServiceModel>)?.Count == 0)
+{
+    <div>
+        <h4>No posts found by search: <b>@ViewData["SearchText"]</b> </h4> 
+        <br> 
+        <h4>:(</h4>
+    </div>
+}
+else
+{
+    <div>
+		<h4>Posts found by search: <b>@ViewData["SearchText"]</b></h4> 
+        <br>
+	</div>
+}
+
+@foreach (var post in (List<CirclePostServiceModel>)ViewData["FoundPosts"])
+{
+    <div class="page-post d-flex flex-column">
+        <main class="page-post-content mt-4">
+            <div class="username-buttons-container">
+                <a href="/Profile/UserProfile?UserName=@post.CreatedBy.UserName" style="color:#302b36"><b>@post.CreatedBy.UserName</b></a>
+                @if (User.Identity.Name == post.CreatedBy.UserName)
+                {
+                    <form method="post" asp-controller="Post" asp-action="Edit" asp-route-postId="@post.Id">
+                        <button type="submit" class="btn btn-secondary btn-small">Edit</button>
+                    </form>
+                    <form method="post" asp-controller="Post" asp-action="Delete" asp-route-postId="@post.Id">
+                        <button type="submit" class="btn btn-secondary btn-small">Delete</button>
+                    </form>
+                }
+            </div>
+            @if (post.Caption != null)
+            {
+                <div><h6>@post.Caption</h6></div>
+            }
+            <div class="visualize-tags-hashtags">
+                @if (post.Hashtags != null)
+                {
+                    @foreach (var hashtag in post.Hashtags)
+                    {
+                        if (hashtag.DeletedBy == null)
+                        {
+                            <h7 class="page-post-content-hashtags"><i>#@hashtag.Label</i></h7> @*TODO MAYBE add a link redirecting to posts with the same hashatag*@
+                        }
+                    }
+                }
+            </div>
+            <div class="visualize-tags-hashtags">
+                @if (post.TaggedUsers != null)
+                {
+                    @foreach (var taggedUser in post.TaggedUsers)
+                    {
+                        <a href="/Profile/UserProfile?UserName=@taggedUser.UserName" style="color:grey"><h6 class="page-post-content-tagged-users">@@@taggedUser.UserName</h6></a>
+                        @*TODO add a link redirecting to tagged user's profile*@
+                    }
+                }
+            </div>
+            <a class="plain-link" href="/Post/Details?postId=@post.Id">
+                <p class="page-post-content-preview mt-3">
+                    @Html.Raw(post.Content) @*should be the photo/s*@
+                </p>
+            </a>
+        </main>
+        <footer class="page-post-footer d-flex justify-content-start">
+            <div class="page-post-footer-reactions d-flex justify-content-start">
+                <img class="mt-1" src="~/images/reaction.svg" width="20px" height="20px">
+                <div class="ms-2">@post.Reactions.Count</div>
+            </div>
+            <div class="page-post-footer-comments d-flex justify-content-start ms-4">
+                <img class="mt-1" src="~/images/comment.svg" width="20px" height="20px">
+                <div class="ms-2">@post.Comments.Count</div>
+            </div>
+            <div class="page-post-footer-share ms-4">
+                <img src="~/images/share.svg" width="20px" height="20px">
+            </div>
+            <div>
+                <div class="page-post-heading-timestamp ms-3 mt-1">@post.CreatedOn.ToString("dd/MM/yyyy HH:mm")</div>
+            </div>
+        </footer>
+    </div>
+}

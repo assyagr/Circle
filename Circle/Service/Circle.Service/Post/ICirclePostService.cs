@@ -22,5 +22,7 @@ namespace Circle.Service.Post
 		Task<CirclePostServiceModel> DeleteAsync(string id);
 
 		Task<CommentServiceModel> CreateCommentOnPost(CommentServiceModel model, string postId, string? parentId = null);
+
+		List<CirclePostServiceModel> Search(string searchString);
 	}
 }
