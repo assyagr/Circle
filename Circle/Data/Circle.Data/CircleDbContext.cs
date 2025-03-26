@@ -17,6 +17,8 @@ namespace Circle.Data
 
         public DbSet<Hashtag> Hashtags { get; set; }
 
+        public DbSet<CircleFriendship> CircleFriendships { get; set; }
+
         public CircleDbContext(DbContextOptions<CircleDbContext> options)
             : base(options)
         {
@@ -37,7 +39,28 @@ namespace Circle.Data
 				.HasMany(cp => cp.Content)
 				.WithMany();
 
-			modelBuilder.ConfigureMetadataEntity<Hashtag>();
+
+
+
+
+            // One user to many friendship requests
+            modelBuilder.Entity<CircleFriendship>()
+                .HasOne(cf => cf.CreatedBy)
+                .WithMany(cu => cu.OutgoingCircleFriendships)
+                .HasForeignKey(cf => cf.CreatedById)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // One user to many friendship requests
+            modelBuilder.Entity<CircleFriendship>()
+                .HasOne(cf => cf.SentTo) //navigation property??? / a single one to one property? 
+                .WithMany(cu => cu.IncomingCircleFriendships) //defined in circleuser as a CF it all makes sense now
+                .HasForeignKey(cf => cf.SentToId)
+                .OnDelete(DeleteBehavior.Restrict); // it works
+
+
+
+
+            modelBuilder.ConfigureMetadataEntity<Hashtag>();
 
 			base.OnModelCreating(modelBuilder);
 		}

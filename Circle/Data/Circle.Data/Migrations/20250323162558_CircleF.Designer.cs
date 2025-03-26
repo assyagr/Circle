@@ -4,6 +4,7 @@ using Circle.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Circle.Data.Migrations
 {
     [DbContext(typeof(CircleDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250323162558_CircleF")]
+    partial class CircleF
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,6 +61,12 @@ namespace Circle.Data.Migrations
                     b.Property<string>("CircleUserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("CircleUserId1")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CircleUserId2")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("CreatedById")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -77,9 +86,15 @@ namespace Circle.Data.Migrations
 
                     b.HasIndex("CircleUserId");
 
-                    b.HasIndex("CreatedById");
+                    b.HasIndex("CircleUserId1");
 
-                    b.HasIndex("SentToId");
+                    b.HasIndex("CircleUserId2");
+
+                    b.HasIndex("CreatedById")
+                        .IsUnique();
+
+                    b.HasIndex("SentToId")
+                        .IsUnique();
 
                     b.ToTable("CircleFriendships");
                 });
@@ -588,15 +603,23 @@ namespace Circle.Data.Migrations
                         .WithMany("AcceptedCricleFriendships")
                         .HasForeignKey("CircleUserId");
 
-                    b.HasOne("Circle.Data.Models.CircleUser", "CreatedBy")
+                    b.HasOne("Circle.Data.Models.CircleUser", null)
+                        .WithMany("IncomingCircleFriendships")
+                        .HasForeignKey("CircleUserId1");
+
+                    b.HasOne("Circle.Data.Models.CircleUser", null)
                         .WithMany("OutgoingCircleFriendships")
-                        .HasForeignKey("CreatedById")
+                        .HasForeignKey("CircleUserId2");
+
+                    b.HasOne("Circle.Data.Models.CircleUser", "CreatedBy")
+                        .WithOne()
+                        .HasForeignKey("Circle.Data.Models.CircleFriendship", "CreatedById")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Circle.Data.Models.CircleUser", "SentTo")
-                        .WithMany("IncomingCircleFriendships")
-                        .HasForeignKey("SentToId")
+                        .WithOne()
+                        .HasForeignKey("Circle.Data.Models.CircleFriendship", "SentToId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

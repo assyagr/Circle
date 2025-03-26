@@ -26,5 +26,11 @@ namespace Circle.Data.Models
 
         //Suggestion:
         //public int GroupCricle {  get; set; } // App circle to have friend cricles/Groups but diffrent ig Ui is a circle :p
+        
+       public List<CircleFriendship> IncomingCircleFriendships { get; set; } = new List<CircleFriendship>(); // new because i will always have one?
+
+        public List<CircleFriendship> OutgoingCircleFriendships { get; set; } = new List<CircleFriendship>();
+
+        public List<CircleFriendship> AcceptedCricleFriendships { get; set; } = new List<CircleFriendship>();
     }
 }

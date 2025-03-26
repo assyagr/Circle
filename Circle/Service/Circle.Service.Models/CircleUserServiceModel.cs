@@ -17,6 +17,12 @@ namespace Circle.Service.Models
 
 		public string CircleRole { get; set; } //Admin, User??
 
-		//public bool IsDeleted { get; set; } // soft delete 
-	}
+        //public bool IsDeleted { get; set; } // soft delete 
+
+
+        public List<CircleFriendshipServiceModel> IncomingCircleFriendships { get; set; }
+        public List<CircleFriendshipServiceModel> OutgoingCircleFriendships { get; set; }
+        public List<CircleFriendshipServiceModel> AcceptedCircleFriendships { get; set; }
+
+    }
 }
