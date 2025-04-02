@@ -1,10 +1,17 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Circle.Service.CircleFriendship;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Circle.Web.Controllers
 {
     public class CircleFriendshipController : Controller
     {
+        private readonly ICircleFriendshipService _circleFriendshipService;
+
+        public CircleFriendshipController(ICircleFriendshipService circleFriendshipService)
+        {
+            _circleFriendshipService = circleFriendshipService;
+        }
+
         // GET: CircleFriendshipController
         public ActionResult Index() //test page
         {
@@ -30,6 +37,8 @@ namespace Circle.Web.Controllers
         {
             try
             {
+                string circleUser = collection["circleuser"]; // Get the circleUser value from the form
+                _circleFriendshipService.CreateFriendship(circleUser); // Pass the circleUser to the service
                 return RedirectToAction(nameof(Index));
             }
             catch

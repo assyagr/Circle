@@ -53,7 +53,7 @@ namespace Circle.Data
             // One user to many friendship requests
             modelBuilder.Entity<CircleFriendship>()
                 .HasOne(cf => cf.SentTo) //navigation property??? / a single one to one property? 
-                .WithMany(cu => cu.IncomingCircleFriendships) //defined in circleuser as a CF it all makes sense now
+                .WithMany(cu => cu.IncomingCircleFriendships) //defined in circleuser as a CF it all makes sense now?
                 .HasForeignKey(cf => cf.SentToId)
                 .OnDelete(DeleteBehavior.Restrict); // it works
 
