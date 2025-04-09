@@ -31,6 +31,13 @@ namespace Circle.Data.Repositories
             return user;
         }
 
+		public async Task<CircleUser> EditAsync(CircleUser user)
+		{
+			this._dbContext.Update(user);
+			await this._dbContext.SaveChangesAsync();
+			return user;
+		}
+
 		public async Task<CircleUser> DeleteAsync(CircleUser user)
 		{
 			throw new NotImplementedException();

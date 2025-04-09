@@ -167,3 +167,21 @@ body {
     box-sizing: border-box;
     margin-top: 10px;
 }
+
+.following-followers {
+    display: flex;
+    gap: 10px;
+}
+
+.user-manage-button {
+    display: flex;
+    gap: 10px;
+}
+
+.user-pfp {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}

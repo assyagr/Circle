@@ -16,7 +16,7 @@ namespace Circle.Service
 		Task<CircleUserServiceModel> UpdateAsync(string id, CircleUserServiceModel model);
 		Task<CircleUserServiceModel> GetUserByEmailAsync(string email);
 		Task<CircleUser> GetCurrentUserAsync();
-
+		Task<CircleUserServiceModel> EditAsync(CircleUserServiceModel model);
 		Task<CircleUser> GetUserByUserName(string username);
 		Task AddFriendAsync(Guid userId, Guid friendId);
 		Task RemoveFriendAsync(Guid userId, Guid friendId);

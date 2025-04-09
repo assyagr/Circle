@@ -37,6 +37,13 @@ namespace Circle.Data
 				.HasMany(cp => cp.Content)
 				.WithMany();
 
+			modelBuilder.ConfigureMetadataEntity<CirclePost>();
+
+			modelBuilder.Entity<CircleUser>()
+				.HasMany(cu => cu.Posts)
+				.WithOne()
+				.OnDelete(DeleteBehavior.NoAction);
+
 			modelBuilder.ConfigureMetadataEntity<Hashtag>();
 
 			base.OnModelCreating(modelBuilder);
