@@ -22,17 +22,17 @@ namespace Circle.Data.Repositories
             _context.CircleFriendships.Add(friendship);
 
             // Update the sender's outgoing list
-            var sender = _context.Users.Find(friendship.CreatedById);
+            var sender = _context.Users.Find(friendship.CreatedById); //This should work if i make it get loged in user id
             if (sender != null)
             {
                 sender.OutgoingCircleFriendships.Add(friendship);
             }
 
             // Update the receiver's incoming list
-            var receiver = _context.Users.Find(friendship.SentToId);
-            if (receiver != null)
+            var receiverId = _context.Users.Find(friendship.SentToId); //still a string? Find wants a know primary key"
+            if (receiverId != null)
             {
-                receiver.IncomingCircleFriendships.Add(friendship);
+                receiverId.IncomingCircleFriendships.Add(friendship);
             }
 
             // Save changes to the database

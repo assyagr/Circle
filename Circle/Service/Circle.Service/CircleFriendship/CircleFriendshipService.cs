@@ -22,7 +22,7 @@ namespace Circle.Service.CircleFriendship
             var friendship = new Data.Models.CircleFriendship //gives error if just new cf
             {
                 CreatedById = "currentUserId", // Replace with actual current user ID somehow
-                SentToId = circleUser,
+                SentToId = circleUser, //still just a string with the username?
                 Status = "Pending",
                 DateTime = DateTime.UtcNow
             };
