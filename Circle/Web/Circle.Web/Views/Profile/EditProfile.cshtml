@@ -1,0 +1,25 @@
+﻿@using Circle.Data.Models
+@using Circle.Service.Models
+@using Circle.Web.Models.User
+@using Newtonsoft.Json
+@model EditUserModel
+
+<form asp-controller="Profile" asp-action="EditConfirm" method="post" id="edit-profile-form" class="w-50" enctype="multipart/form-data">
+    <h2>Edit Your Profile</h2>
+    <hr />
+    <input type="hidden" asp-for="@Model.Id" />
+    <input type="hidden" asp-for="@Model.UserName" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+    <div class="form-floating mb-3">
+        <input asp-for="@Model.Bio" class="form-control" aria-required="true" />
+        <label asp-for="@Model.Bio" class="form-label">Bio</label>
+    </div>
+    <div>
+        <label asp-for="@Model.ProfilePicture" class="form-label"> Change your profile picture</label>
+        <input asp-for="@Model.ProfilePicture" class="form-label" aria-required="true" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-secondary edit-post-form button">Save Edit</button>
+    </div>
+</form>

@@ -51,7 +51,12 @@ namespace Circle.Service
 		public IQueryable<CircleUserServiceModel> GetAll()
 		{
 			//throw new NotImplementedException();
-			return userRepository.GetAll().Select(user => user.ToModel());
+			return userRepository.GetAll()
+				//.Include(u => u.Following)
+				//	.ThenInclude(fol => fol.UserName)
+				//.Include(u => u.Followers)
+				//	.ThenInclude(fan => fan.UserName)
+				.Select(user => user.ToModel());
 			//	.Include(u => u.Friends)
 			//	.Select(u => u.ToModel());
 		}
@@ -103,6 +108,15 @@ namespace Circle.Service
 		public async Task<CircleUser> GetUserByUserName(string username)
 		{
 			return await this._userStore.FindByNameAsync(username.ToUpper(), CancellationToken.None);
+		}
+
+		public async Task<CircleUserServiceModel> EditAsync(CircleUserServiceModel model)
+		{
+			CircleUser user = await GetUserByUserName(model.UserName);
+			user.Bio = model.Bio;
+
+			userRepository.EditAsync(user);
+			return user.ToModel();
 		}
 	}
 }

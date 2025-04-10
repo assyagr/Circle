@@ -10,6 +10,16 @@
     <div class="page-post d-flex flex-column">
         <main class="page-post-content mt-4">
             <div class="username-buttons-container">
+                @if (post.CreatedBy.ProfilePicture == null)
+                {
+                    <img class="user-pfp" src="~/images/no-pfp.svg">
+                }
+                else
+                {
+                    <p class="user-pfp">
+                        @Html.Raw(post.CreatedBy.ProfilePicture) @*should be the pfp*@
+                    </p>
+                }
                 <a href="/Profile/UserProfile?UserName=@post.CreatedBy.UserName" style="color:#302b36"><b>@post.CreatedBy.UserName</b></a>
 				@if (User.Identity.Name == post.CreatedBy.UserName)
                 {

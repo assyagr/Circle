@@ -27,7 +27,9 @@ namespace Circle.Service.Mappings
 				Email = entity.Email,
 				//DisplayName = entity.DisplayName,
 				Id = entity.Id,
-				UserName = entity.UserName
+				UserName = entity.UserName,
+				Bio = entity.Bio,
+				Posts = (List<CirclePostServiceModel>)entity.Posts?.Select(p => p.ToModel())
 			};
 		}
 	}

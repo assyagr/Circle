@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,5 +19,16 @@ namespace Circle.Service.Models
 		public string CircleRole { get; set; } //Admin, User??
 
 		//public bool IsDeleted { get; set; } // soft delete 
+		public string? Bio { get; set; }
+
+		public Attachment? ProfilePicture { get; set; }
+
+		public List<CircleUserServiceModel>? Friends { get; set; }
+
+		public List<CircleUserServiceModel>? Followers { get; set; }
+
+		public List<CircleUserServiceModel>? Following { get; set; }
+
+		public List<CirclePostServiceModel>? Posts { get; set; } //Posts by user
 	}
 }

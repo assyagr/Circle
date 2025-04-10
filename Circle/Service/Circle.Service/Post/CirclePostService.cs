@@ -96,6 +96,8 @@ namespace Circle.Service.Post
 					.ThenInclude(upc => upc.Comment)
 						.ThenInclude(c => c.CreatedBy)
 				.Include(p => p.CreatedBy)
+				.Include(p => p.CreatedBy)
+					.ThenInclude(u => u.ProfilePicture)
 				.Include(p => p.UpdatedBy)
 				.Include(p => p.DeletedBy);
 		}
@@ -186,7 +188,8 @@ namespace Circle.Service.Post
 			List<CirclePost> allPosts = InternalGetAll().ToList();
 			List<CirclePost> foundPostEntities = allPosts?.Where(p => 
 				p.Caption.Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
-				p.Hashtags.Any(h => h.Label.Contains(searchString, StringComparison.OrdinalIgnoreCase)))
+				p.Hashtags.Any(h => h.Label.Contains(searchString, StringComparison.OrdinalIgnoreCase)) ||
+				p.CreatedBy.UserName.Contains(searchString, StringComparison.OrdinalIgnoreCase))
 				.ToList();
 			List<CirclePostServiceModel> foundPostModels = foundPostEntities?.Select(p => p.ToModel()).ToList();
 			return foundPostModels;

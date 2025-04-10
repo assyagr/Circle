@@ -12,6 +12,8 @@ namespace Circle.Data.Repositories
     {
         Task<CircleUser> CreateAsync(CircleUser Userinfo); //Userinfo contains everything right?
 
+		Task<CircleUser> EditAsync(CircleUser user);
+
 		Task<CircleUser> DeleteAsync(CircleUser user);
 
 		IQueryable<CircleUser> GetAll();

@@ -80,7 +80,7 @@ namespace Circle.Web.Controllers
 			return View(post);
 		}
 		
-		private async Task<string> UploadPhoto(IFormFile photo)
+		public async Task<string> UploadPhoto(IFormFile photo)
 		{
 			var uploadResponse = await this.cloudinaryService.UploadFile(photo);
 
