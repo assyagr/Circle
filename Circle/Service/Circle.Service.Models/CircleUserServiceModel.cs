@@ -23,11 +23,11 @@ namespace Circle.Service.Models
 
 		public Attachment? ProfilePicture { get; set; }
 
-		public List<CircleUserServiceModel>? Friends { get; set; }
+		public List<CircleUserServiceModel>? Friends { get; set; } = new List<CircleUserServiceModel>();
 
-		public List<CircleUserServiceModel>? Followers { get; set; }
+		public List<CircleUserServiceModel>? Followers { get; set; } = new List<CircleUserServiceModel>();
 
-		public List<CircleUserServiceModel>? Following { get; set; }
+		public List<CircleUserServiceModel>? Following { get; set; } = new List<CircleUserServiceModel>();
 
 		public List<CirclePostServiceModel>? Posts { get; set; } //Posts by user
 	}

@@ -17,5 +17,9 @@ namespace Circle.Data.Repositories
 		Task<CircleUser> DeleteAsync(CircleUser user);
 
 		IQueryable<CircleUser> GetAll();
+
+		Task Follow(string followerId, string followingId);
+
+		Task Unfollow(string unfollowerId, string followingId);
 	}
 }

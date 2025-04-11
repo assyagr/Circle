@@ -20,5 +20,8 @@ namespace Circle.Service
 		Task<CircleUser> GetUserByUserName(string username);
 		Task AddFriendAsync(Guid userId, Guid friendId);
 		Task RemoveFriendAsync(Guid userId, Guid friendId);
+		List<CircleUserServiceModel> SearchUser(string searchString);
+		Task Follow(string following);
+		Task Unfollow(string following);
 	}
 }

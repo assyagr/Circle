@@ -52,10 +52,9 @@ namespace Circle.Service
 		{
 			//throw new NotImplementedException();
 			return userRepository.GetAll()
-				//.Include(u => u.Following)
-				//	.ThenInclude(fol => fol.UserName)
-				//.Include(u => u.Followers)
-				//	.ThenInclude(fan => fan.UserName)
+				.Include(u => u.Following)
+				//Include friends is giving an error????????????????????????????????????????????????????
+				.Include(u => u.Followers)
 				.Select(user => user.ToModel());
 			//	.Include(u => u.Friends)
 			//	.Select(u => u.ToModel());
@@ -117,6 +116,29 @@ namespace Circle.Service
 
 			userRepository.EditAsync(user);
 			return user.ToModel();
+		}
+
+		public List<CircleUserServiceModel> SearchUser(string searchString)
+		{
+			List<CircleUser> allUsers = userRepository.GetAll().ToList();
+			List<CircleUser> foundUserEntities = allUsers?.Where(u =>
+				u.UserName.Contains(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
+			List<CircleUserServiceModel> foundUserModels = foundUserEntities?.Select(u => u.ToModel()).ToList();
+			return foundUserModels;
+		}
+
+		public async Task Follow(string following)
+		{
+			CircleUser followerUser = await GetCurrentUserAsync();
+			CircleUser followingUser = await GetUserByUserName(following);
+			userRepository.Follow(followerUser.Id, followingUser.Id);
+		}
+
+		public async Task Unfollow(string following)
+		{
+			CircleUser unfollowerUser = await GetCurrentUserAsync();
+			CircleUser followingUser = await GetUserByUserName(following);
+			userRepository.Unfollow(unfollowerUser.Id, followingUser.Id);
 		}
 	}
 }

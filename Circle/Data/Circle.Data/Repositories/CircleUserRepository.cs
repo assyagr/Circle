@@ -47,5 +47,37 @@ namespace Circle.Data.Repositories
 		{
             return this._dbContext.Users;
 		}
+
+        public async Task Follow(string followerId, string followingId)
+        {
+			CircleUser follower = _dbContext.Users
+				.Include(u => u.Following)
+				.FirstOrDefault(u => u.Id == followerId);
+
+			CircleUser following = _dbContext.Users
+				.Include(u => u.Followers)
+				.FirstOrDefault(u => u.Id == followingId);
+
+			follower.Following.Add(following);
+			following.Followers.Add(follower);
+
+			await this._dbContext.SaveChangesAsync();
+		}
+
+		public async Task Unfollow(string unfollowerId, string followingId)
+		{
+			CircleUser unfollower = _dbContext.Users
+				.Include(u => u.Following)
+				.FirstOrDefault(u => u.Id == unfollowerId);
+
+			CircleUser following = _dbContext.Users
+				.Include(u => u.Followers)
+				.FirstOrDefault(u => u.Id == followingId);
+
+			unfollower.Following.Remove(following);
+			following.Followers.Remove(unfollower);
+
+			await this._dbContext.SaveChangesAsync();
+		}
 	}
 }

@@ -1,0 +1,39 @@
+﻿@using Circle.Service.Models
+@model CircleUserServiceModel
+
+
+
+@if ((ViewData["FoundUsers"] as List<CircleUserServiceModel>)?.Count == 0)
+{
+    <div>
+        <h4>No users found by search: <b>@ViewData["SearchText"]</b> </h4>
+        <a asp-controller="Post" asp-action="Search" asp-route-searchString="@ViewData["SearchText"]" method="post" style="color:#000000"><h6><i>Search for posts instead</i></h6></a>
+        <br>
+        <h4>:(</h4>
+    </div>
+}
+else
+{
+    <div>
+        <h4>Users found by search: <b>@ViewData["SearchText"]</b></h4>
+        <a asp-controller="Post" asp-action="Search" asp-route-searchString="@ViewData["SearchText"]" method="post" style="color:#000000"><h6><i>Search for posts instead</i></h6></a>
+        <br>
+    </div>
+}
+
+@foreach (var user in (List<CircleUserServiceModel>)ViewData["FoundUsers"])
+{
+    <div class="username-buttons-container">
+        @if (user.ProfilePicture == null)
+        {
+            <img class="user-pfp" src="~/images/no-pfp.svg">
+        }
+        else
+        {
+            <p class="user-pfp">
+                @Html.Raw(user.ProfilePicture) @*should be the pfp*@
+            </p>
+        }
+        <a href="/Profile/UserProfile?UserName=@user.UserName" style="color:#000000"><h6 class="page-post-content-tagged-users">@@@user.UserName</h6></a>
+    </div>
+}
