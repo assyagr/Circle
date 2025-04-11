@@ -31,11 +31,11 @@ namespace Circle.Data.Models
 
 		public Attachment? ProfilePicture { get; set; }
 
-		public List<CircleUser>? Friends { get; set; }
+		public List<CircleUser>? Friends { get; set; } = new List<CircleUser>();
 
-		public List<CircleUser>? Followers { get; set; }
+		public List<CircleUser>? Followers { get; set; } = new List<CircleUser>();
 
-		public List<CircleUser>? Following { get; set; }
+		public List<CircleUser>? Following { get; set; } = new List<CircleUser>();
 
 		public List<CirclePost>? Posts { get; set; } //Posts by user
 	}

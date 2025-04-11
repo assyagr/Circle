@@ -29,8 +29,7 @@ namespace Circle.Web.Controllers
 
 			List<CirclePostServiceModel> allPosts = this.circlePostService.GetAll().ToList();
 			List<CirclePostServiceModel> posts = allPosts.Where(p => p.CreatedBy.UserName == UserName).ToList();
-			//List<CommentServiceModel> comments = (await commentService.GetAllNoParentByPostId(postId)).ToList();
-			//this.ViewData["Comments"] = comments;
+			
 			this.ViewData["Posts"] = posts;
 
 			if (user == null)
@@ -64,6 +63,33 @@ namespace Circle.Web.Controllers
 			await this.circleUserService.EditAsync(userServiceModel);
 
 			return Redirect($"/Profile/UserProfile?UserName={userServiceModel.UserName}");
+		}
+
+		public IActionResult SearchUser(string searchString)
+		{
+			if (searchString == "" || searchString == null)
+			{
+				return Redirect("/");
+			}
+
+
+			List<CircleUserServiceModel> foundUsers = circleUserService.SearchUser(searchString);
+			this.ViewData["FoundUsers"] = foundUsers;
+			this.ViewData["SearchText"] = searchString;
+
+			return View();
+		}
+
+		public async Task<IActionResult> Follow(string following)
+		{
+			await circleUserService.Follow(following);
+			return Redirect($"/Profile/UserProfile?UserName={following}");
+		}
+
+		public async Task<IActionResult> Unfollow(string following)
+		{
+			await circleUserService.Unfollow(following);
+			return Redirect($"/Profile/UserProfile?UserName={following}");
 		}
 	}
 }

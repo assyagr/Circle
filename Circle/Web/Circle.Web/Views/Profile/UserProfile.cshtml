@@ -15,7 +15,7 @@
             @Html.Raw(Model.ProfilePicture) @*should be the pfp*@
         </p>
     }
-    
+
     <h4><b>@Model.UserName</b>'s profile</h4>
     @if (User.Identity.Name == Model.UserName)
     {
@@ -31,32 +31,24 @@
 <div>
     <div class="following-followers">
         <b>@posts.Count</b>Posts
-        @if (Model.Friends == null)
-        {
-            <div><b>0</b> Friends</div>
-        }
-        else
-        {
-            <div><b>@Model.Friends.Count</b> Friends</div>
-        }
-        @if(Model.Following == null)
-        {
-            <div><b>0</b> Following</div>
-        }
-        else
-        {
-            <div><b>@Model.Following.Count</b> Following</div>
-        }
-        @if (Model.Followers == null)
-        {
-            <div><b>0</b> Followers</div>
-        }
-        else
-        {
-            <div><b>@Model.Following.Count</b> Followers</div>
-        }
+        <div><b>@Model.Friends.Count</b> Friends</div>
+        <div><b>@Model.Following.Count</b> Following</div>
+        <div><b>@Model.Followers.Count</b> Followers</div>
     </div>
     <i>Created @Model.CreatedAt.ToString("dd/MM/yyyy")</i>
+    
+    @if (User.Identity.Name != Model.UserName && (Model.Followers == null || !Model.Followers.Select(f => f.UserName).Contains(User.Identity.Name)))
+    {
+        <form method="post" asp-controller="Profile" asp-action="Follow" asp-route-following="@Model.UserName">
+            <button type="submit" class="btn btn-secondary btn-small">Follow</button>
+        </form>
+    }
+    else if (User.Identity.Name != Model.UserName && Model.Followers.Select(f => f.UserName).Contains(User.Identity.Name))
+    {
+        <form method="post" asp-controller="Profile" asp-action="Unfollow" asp-route-following="@Model.UserName">
+            <button type="submit" class="btn btn-secondary btn-small">Following</button>
+        </form>
+    }
 </div>
 
 @foreach (var post in posts)

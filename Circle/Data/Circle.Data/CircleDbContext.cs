@@ -46,6 +46,11 @@ namespace Circle.Data
 
 			modelBuilder.ConfigureMetadataEntity<Hashtag>();
 
+			modelBuilder.Entity<CircleUser>()
+				.HasMany(u => u.Following)
+				.WithMany(u => u.Followers)
+				.UsingEntity(t => t.ToTable("UserFollows"));
+
 			base.OnModelCreating(modelBuilder);
 		}
     }

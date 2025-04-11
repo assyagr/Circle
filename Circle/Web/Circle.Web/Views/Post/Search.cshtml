@@ -1,20 +1,24 @@
 ﻿@using Circle.Service.Models
 @model CirclePostServiceModel
 
+
+
 @if ((ViewData["FoundPosts"] as List<CirclePostServiceModel>)?.Count == 0)
 {
     <div>
-        <h4>No posts found by search: <b>@ViewData["SearchText"]</b> </h4> 
-        <br> 
+        <h4>No posts found by search: <b>@ViewData["SearchText"]</b> </h4>
+        <a asp-controller="Profile" asp-action="SearchUser" asp-route-searchString="@ViewData["SearchText"]" method="post" style="color:#000000"><h6><i>Search for users instead</i></h6></a>
+        <br>
         <h4>:(</h4>
     </div>
 }
 else
 {
     <div>
-		<h4>Posts found by search: <b>@ViewData["SearchText"]</b></h4> 
+        <h4>Posts found by search: <b>@ViewData["SearchText"]</b></h4>
+        <a asp-controller="Profile" asp-action="SearchUser" asp-route-searchString="@ViewData["SearchText"]" method="post" style="color:#000000"><h6><i>Search for users instead</i></h6></a>
         <br>
-	</div>
+    </div>
 }
 
 @foreach (var post in (List<CirclePostServiceModel>)ViewData["FoundPosts"])
@@ -22,6 +26,16 @@ else
     <div class="page-post d-flex flex-column">
         <main class="page-post-content mt-4">
             <div class="username-buttons-container">
+                @if (post.CreatedBy.ProfilePicture == null)
+                {
+                    <img class="user-pfp" src="~/images/no-pfp.svg">
+                }
+                else
+                {
+                    <p class="user-pfp">
+                        @Html.Raw(Model.CreatedBy.ProfilePicture) @*should be the pfp*@
+                    </p>
+                }
                 <a href="/Profile/UserProfile?UserName=@post.CreatedBy.UserName" style="color:#302b36"><b>@post.CreatedBy.UserName</b></a>
                 @if (User.Identity.Name == post.CreatedBy.UserName)
                 {
@@ -83,3 +97,4 @@ else
         </footer>
     </div>
 }
+

@@ -1,4 +1,5 @@
-﻿using Circle.Data.Models;
+﻿using Circle.Data.Migrations;
+using Circle.Data.Models;
 using Circle.Service.Models;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,10 @@ namespace Circle.Service.Mappings
 				Id = entity.Id,
 				UserName = entity.UserName,
 				Bio = entity.Bio,
-				Posts = (List<CirclePostServiceModel>)entity.Posts?.Select(p => p.ToModel())
+				Posts = (List<CirclePostServiceModel>)entity.Posts?.Select(p => p.ToModel()),
+				Friends = entity.Friends?.Select(f => new CircleUserServiceModel { UserName = f.UserName}).ToList(),
+				Followers = entity.Followers?.Select(f => new CircleUserServiceModel { UserName = f.UserName }).ToList(),
+				Following = entity.Following?.Select(f => new CircleUserServiceModel { UserName = f.UserName }).ToList()
 			};
 		}
 	}
