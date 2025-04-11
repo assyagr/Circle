@@ -18,24 +18,22 @@ namespace Circle.Data.Repositories
 
         public void Add(CircleFriendship friendship)
         {
-            // Add the friendship to the database
+            // Add the CircleFriendship entity to the DbSet
             _context.CircleFriendships.Add(friendship);
 
-            // Update the sender's outgoing list
-            var sender = _context.Users.Find(friendship.CreatedById); //This should work if i make it get loged in user id
-            if (sender != null)
+            // Add the CreatedBy user to the DbSet if not already tracked
+            if (_context.Users.Any(u => u.Id == friendship.CreatedById))
             {
-                sender.OutgoingCircleFriendships.Add(friendship);
+                _context.Users.Add(friendship.CreatedBy);
             }
 
-            // Update the receiver's incoming list
-            var receiverId = _context.Users.Find(friendship.SentToId); //still a string? Find wants a know primary key"
-            if (receiverId != null)
+            // Add the SentTo user to the DbSet if not already tracked
+            if (!_context.Users.Any(u => u.Id == friendship.SentToId))
             {
-                receiverId.IncomingCircleFriendships.Add(friendship);
+                _context.Users.Add(friendship.SentTo);
             }
 
-            // Save changes to the database
+            // Save all changes to the database
             _context.SaveChanges();
         }
     }

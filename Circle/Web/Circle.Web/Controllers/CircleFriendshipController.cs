@@ -13,7 +13,7 @@ namespace Circle.Web.Controllers
         }
 
         // GET: CircleFriendshipController
-        public ActionResult Index() //test page
+        public ActionResult Index()
         {
             return View();
         }
@@ -33,12 +33,25 @@ namespace Circle.Web.Controllers
         // POST: CircleFriendshipController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(string circleUser)
         {
             try
             {
-                string circleUser = collection["circleuser"]; // Get the circleUser value from the form
-                _circleFriendshipService.CreateFriendship(circleUser); // Pass the circleUser to the service
+                // Assuming the currently logged-in user can be retrieved from User.Identity.Name
+                var currentUser = User.Identity?.Name;
+
+                if (string.IsNullOrEmpty(currentUser))
+                {
+                    // Handle the case where the user is not logged in
+                    return Unauthorized();
+                }
+
+                // Combine the current user and the input from the view
+                var package = $"{currentUser}:{circleUser}";
+
+                // Call the service to create the friendship
+                _circleFriendshipService.CreateFriendship(package);
+
                 return RedirectToAction(nameof(Index));
             }
             catch

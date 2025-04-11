@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Circle.Data.Models;
@@ -8,7 +9,7 @@ using Circle.Data.Repositories;
 
 namespace Circle.Service.CircleFriendship
 {
-    public class CircleFriendshipService
+    public class CircleFriendshipService : ICircleFriendshipService
     {
         private readonly ICircleFriendshipReposiotry _circleFriendshipRepository;
 
@@ -17,16 +18,24 @@ namespace Circle.Service.CircleFriendship
             _circleFriendshipRepository = circleFriendshipRepository;
         }
 
-        public void CreateFriendship(string circleUser)
+        public void CreateFriendship(string package)
         {
-            var friendship = new Data.Models.CircleFriendship //gives error if just new cf
+            // Split the package into the current user and the circle user
+            var parts = package.Split(':');
+
+            var currentUserId = parts[0];
+            var circleUserId = parts[1];
+
+            // Create a new CircleFriendship object
+            var friendship = new Circle.Data.Models.CircleFriendship
             {
-                CreatedById = "currentUserId", // Replace with actual current user ID somehow
-                SentToId = circleUser, //still just a string with the username?
-                Status = "Pending",
-                DateTime = DateTime.UtcNow
+                CreatedById = currentUserId,
+                SentToId = circleUserId,
+                Status = "Pending", // Default status
+                DateTime = DateTime.UtcNow // Set the current UTC time
             };
 
+            // Add the friendship to the repository
             _circleFriendshipRepository.Add(friendship);
         }
     }
